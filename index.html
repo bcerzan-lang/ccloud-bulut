@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CloudKitap — Dijital Kütüphane</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon-wrap"><span>📚</span></div>
+      <span class="logo-text">CloudKitap</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item active">
+        <span class="nav-icon">🏠</span><span>Ana Sayfa</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">🔍</span><span>Keşfet</span>
+      </a>
+      <a href="kullanici-kitaplari.html" class="nav-item">
+        <span class="nav-icon">✍️</span><span>Kullanıcı Kitapları</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📖</span><span>Kitaplığım</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">❤️</span><span>Favoriler</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">🕐</span><span>Son Okunanlar</span>
+      </a>
+    </nav>
+    <div class="sidebar-section-label">KATEGORİLER</div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item"><span class="nav-icon">🌱</span><span>Gençlik</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">💭</span><span>Roman</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">🔬</span><span>Bilim Kurgu</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">🌍</span><span>Dünya Klasikleri</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="#" class="nav-item"><span class="nav-icon">⚙️</span><span>Ayarlar</span></a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-wrap">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="topbar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Kitap, yazar veya tür ara..." id="searchInput" oninput="handleSearch(this.value)"/>
+        <button class="search-clear" id="searchClear" onclick="clearSearch()" style="display:none">✕</button>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" title="Bildirimler">🔔</button>
+        <div class="avatar">K</div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="content" id="mainContent">
+
+      <!-- HERO BANNER -->
+      <section class="hero-banner">
+        <div class="hero-book-info">
+          <div class="hero-tag">Öne Çıkan Kitap</div>
+          <h1 class="hero-title">Karışık</h1>
+          <p class="hero-author">Sharon M. Draper</p>
+          <p class="hero-desc">On birinci yılında, sözleri olmasa da anlatacak çok şeyi olan bir kızın, Melody'nin inanılmaz hikayesi. Beyin felçli olmasına rağmen olağanüstü bir zihne sahip Melody, kendini dünyaya nasıl anlatacağını öğreniyor.</p>
+          <div class="hero-meta">
+            <span class="meta-pill">⭐ 4.9</span>
+            <span class="meta-pill">📄 329 sayfa</span>
+            <span class="meta-pill">🌍 Türkçe</span>
+          </div>
+          <div class="hero-actions">
+            <a href="kitap-karisik.html" class="btn-read">Okumaya Başla</a>
+            <button class="btn-save" onclick="toggleSave(this)">+ Kitaplığıma Ekle</button>
+          </div>
+        </div>
+        <div class="hero-book-visual">
+          <div class="book-3d" onclick="window.location.href='kitap-karisik.html'">
+            <div class="book-front karisik-cover">
+              <div class="book-front-content">
+                <div class="book-cover-title">KARIŞlK</div>
+                <div class="book-cover-author">Sharon M. Draper</div>
+              </div>
+            </div>
+            <div class="book-spine karisik-spine"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEVAM ET -->
+      <section class="section">
+        <div class="section-head">
+          <h2>Devam Et</h2>
+          <a href="#">Tümü →</a>
+        </div>
+        <div class="continue-list">
+          <a href="bolum1.html" class="continue-card">
+            <div class="continue-cover karisik-sm"></div>
+            <div class="continue-info">
+              <div class="continue-title">Karışık</div>
+              <div class="continue-sub">Bölüm 2 · Sayfa 24</div>
+              <div class="progress-bar"><div class="progress-fill" style="width:18%"></div></div>
+              <div class="progress-label">%18 tamamlandı</div>
+            </div>
+            <span class="continue-arrow">▶</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- KİTAPLAR -->
+      <section class="section">
+        <div class="section-head">
+          <h2>Popüler Kitaplar</h2>
+          <a href="#">Tümü →</a>
+        </div>
+        <div class="books-grid" id="booksGrid">
+
+          <a href="kitap-karisik.html" class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover karisik-cover"></div>
+              <div class="book-overlay"><span>Oku</span></div>
+              <div class="book-badge tr-badge">TR</div>
+            </div>
+            <div class="book-card-info">
+              <div class="book-card-title">Karışık</div>
+              <div class="book-card-author">Sharon M. Draper</div>
+              <div class="book-card-rating">⭐ 4.9</div>
+            </div>
+          </a>
+
+          <a href="kitap-calikusu.html" class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover calikusu-cover"></div>
+              <div class="book-overlay"><span>Oku</span></div>
+              <div class="book-badge tr-badge">TR</div>
+            </div>
+            <div class="book-card-info">
+              <div class="book-card-title">Çalıkuşu</div>
+              <div class="book-card-author">Reşat Nuri Güntekin</div>
+              <div class="book-card-rating">⭐ 4.8</div>
+            </div>
+          </a>
+
+          <a href="#" class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover cover-thorn"></div>
+              <div class="book-overlay"><span>Oku</span></div>
+            </div>
+            <div class="book-card-info">
+              <div class="book-card-title">The Hate U Give</div>
+              <div class="book-card-author">Angie Thomas</div>
+              <div class="book-card-rating">⭐ 4.8</div>
+            </div>
+          </a>
+
+          <a href="#" class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover cover-wonder"></div>
+              <div class="book-overlay"><span>Oku</span></div>
+            </div>
+            <div class="book-card-info">
+              <div class="book-card-title">Harika</div>
+              <div class="book-card-author">R.J. Palacio</div>
+              <div class="book-card-rating">⭐ 4.8</div>
+            </div>
+          </a>
+
+          <a href="#" class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover cover-fault"></div>
+              <div class="book-overlay"><span>Oku</span></div>
+            </div>
+            <div class="book-card-info">
+              <div class="book-card-title">Aynı Yıldızın Altında</div>
+              <div class="book-card-author">John Green</div>
+              <div class="book-card-rating">⭐ 4.7</div>
+            </div>
+          </a>
+
+          <a href="#" class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover cover-speak"></div>
+              <div class="book-overlay"><span>Oku</span></div>
+            </div>
+            <div class="book-card-info">
+              <div class="book-card-title">Speak</div>
+              <div class="book-card-author">Laurie Halse Anderson</div>
+              <div class="book-card-rating">⭐ 4.6</div>
+            </div>
+          </a>
+
+          <a href="#" class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover cover-perks"></div>
+              <div class="book-overlay"><span>Oku</span></div>
+            </div>
+            <div class="book-card-info">
+              <div class="book-card-title">Duvar Çiçeği</div>
+              <div class="book-card-author">Stephen Chbosky</div>
+              <div class="book-card-rating">⭐ 4.7</div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- YENİLER -->
+      <section class="section">
+        <div class="section-head">
+          <h2>Yeni Eklenenler</h2>
+          <a href="#">Tümü →</a>
+        </div>
+        <div class="list-books">
+          <a href="#" class="list-book-item">
+            <div class="list-book-cover cover-thorn"></div>
+            <div class="list-book-info">
+              <div class="list-book-title">The Hate U Give</div>
+              <div class="list-book-author">Angie Thomas · 2023</div>
+              <div class="list-book-desc">Bir kurşun, bir topluluk, bir ses. Starr Carter'ın güçlü hikayesi.</div>
+            </div>
+            <div class="list-book-meta">
+              <span class="meta-pill">4.8 ⭐</span>
+            </div>
+          </a>
+          <a href="#" class="list-book-item">
+            <div class="list-book-cover cover-wonder"></div>
+            <div class="list-book-info">
+              <div class="list-book-title">Harika</div>
+              <div class="list-book-author">R.J. Palacio · 2022</div>
+              <div class="list-book-desc">Auggie Pullman okula başlıyor. Farklı olmak ne anlama gelir?</div>
+            </div>
+            <div class="list-book-meta">
+              <span class="meta-pill">4.8 ⭐</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- BOTTOM NAV (mobile) -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="bn-item active"><span>🏠</span><span>Ana Sayfa</span></a>
+    <a href="#" class="bn-item"><span>🔍</span><span>Keşfet</span></a>
+    <a href="kullanici-kitaplari.html" class="bn-item"><span>✍️</span><span>Yaz</span></a>
+    <a href="#" class="bn-item"><span>👤</span><span>Profil</span></a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

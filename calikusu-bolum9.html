@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Çalıkuşu — Bölüm 9 | CloudKitap</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <input type="hidden" id="bookIdMeta" value="calikusu"/>
+  <input type="hidden" id="chapterNumMeta" value="9"/>
+</head>
+<body class="reader-layout">
+  <div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
+
+  <header class="reader-topbar">
+    <a href="kitap-calikusu.html" class="reader-back">← Kitap Detayı</a>
+    <div class="reader-topbar-title" id="readerChapterTitle">Çalıkuşu · Bölüm 9</div>
+    <div class="reader-topbar-controls" style="position:relative;">
+      <select id="chapterSelect" onchange="location.href='calikusu-bolum'+this.value+'.html'" style="background:var(--surface);color:var(--text);border:1px solid var(--border);padding:6px 10px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:12px;"></select>
+      <button class="r-ctrl-btn" id="fontPanelBtn" onclick="toggleFontPanel()">Aa</button>
+      <div class="font-panel" id="fontPanel">
+        <div class="font-panel-row">
+          <span class="font-panel-label">Yazı Boyutu</span>
+          <span class="font-panel-label" id="fontSizeLabel">17px</span>
+        </div>
+        <div class="font-panel-row">
+          <div class="font-btns">
+            <button class="font-btn" onclick="changeFontSize(-1)">A−</button>
+            <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="reader-body">
+    <article class="reader-paper">
+      <div class="reader-chapter-header">
+        <div class="reader-chapter-num" id="chapterNum">Bölüm 9</div>
+        <h1 class="reader-chapter-title" id="chapterTitle"></h1>
+        <p class="reader-chapter-sub" id="chapterSub"></p>
+      </div>
+      <div class="reader-text" id="readerText"></div>
+      <div class="chapter-nav-strip">
+        <a href="calikusu-bolum8.html" id="prevBtn" class="nav-ch-btn">← Önceki Bölüm</a>
+        <a href="kitap-calikusu.html" class="nav-ch-btn">Bölüm Listesi</a>
+        <a href="calikusu-bolum10.html" id="nextBtn" class="nav-ch-btn">Sonraki Bölüm →</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="tts-player" id="ttsPanel">
+    <span class="tts-icon">🎧</span>
+    <div class="tts-center">
+      <div class="tts-label">
+        <span>Sesli Okuma</span>
+        <span id="ttsTimeLeft"></span>
+      </div>
+      <div class="tts-progress-bar">
+        <div class="tts-progress-fill" id="ttsProgressFill"></div>
+      </div>
+    </div>
+    <div class="tts-controls">
+      <button class="tts-btn" onclick="ttsRewind()" title="Geri Al">⏮</button>
+      <button class="tts-btn tts-play-main" id="ttsPlayBtn" onclick="ttsPlay()" title="Dinle" style="display:flex;">▶</button>
+      <button class="tts-btn tts-play-main" id="ttsPauseBtn" onclick="ttsPause()" title="Duraklat" style="display:none;">⏸</button>
+      <button class="tts-btn" onclick="ttsStop()" title="Durdur">⏹</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

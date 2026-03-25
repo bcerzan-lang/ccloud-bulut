@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karışık — Bölüm 22 | CloudKitap</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <input type="hidden" id="chapterNumMeta" value="22"/>
+</head>
+<body class="reader-layout">
+  <div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
+  <header class="reader-topbar">
+    <a href="bolum21.html" class="reader-back">← Bölüm 21</a>
+    <div class="reader-topbar-title" id="readerChapterTitle">Karışık · Bölüm 22</div>
+    <div class="reader-topbar-controls" style="position:relative;">
+      <select id="chapterSelect" onchange="location.href='bolum'+this.value+'.html'" style="background:var(--surface);color:var(--text);border:1px solid var(--border);padding:6px 10px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:12px;">
+        <option value="1">Bölüm 1</option>
+        <option value="2">Bölüm 2</option>
+        <option value="3">Bölüm 3</option>
+        <option value="4">Bölüm 4</option>
+        <option value="5">Bölüm 5</option>
+        <option value="6">Bölüm 6</option>
+        <option value="7">Bölüm 7</option>
+        <option value="8">Bölüm 8</option>
+        <option value="9">Bölüm 9</option>
+        <option value="10">Bölüm 10</option>
+        <option value="11">Bölüm 11</option>
+        <option value="12">Bölüm 12</option>
+        <option value="13">Bölüm 13</option>
+        <option value="14">Bölüm 14</option>
+        <option value="15">Bölüm 15</option>
+        <option value="16">Bölüm 16</option>
+        <option value="17">Bölüm 17</option>
+        <option value="18">Bölüm 18</option>
+        <option value="19">Bölüm 19</option>
+        <option value="20">Bölüm 20</option>
+        <option value="21">Bölüm 21</option>
+        <option value="22">Bölüm 22</option>
+        <option value="23">Bölüm 23</option>
+        <option value="24">Bölüm 24</option>
+        <option value="25">Bölüm 25</option>
+        <option value="26">Bölüm 26</option>
+        <option value="27">Bölüm 27</option>
+      </select>
+      <button class="r-ctrl-btn" id="fontPanelBtn" onclick="toggleFontPanel()">Aa</button>
+      <div class="font-panel" id="fontPanel">
+        <div class="font-panel-row">
+          <span class="font-panel-label">Yazı Boyutu</span>
+          <span class="font-panel-label" id="fontSizeLabel">17px</span>
+        </div>
+        <div class="font-panel-row">
+          <div class="font-btns">
+            <button class="font-btn" onclick="changeFontSize(-1)">A−</button>
+            <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="reader-body">
+    <article class="reader-paper">
+      <div class="reader-chapter-header">
+        <div class="reader-chapter-num" id="chapterNum">Bölüm 22</div>
+        <h1 class="reader-chapter-title" id="chapterTitle"></h1>
+        <p class="reader-chapter-sub" id="chapterSub"></p>
+      </div>
+      <div class="reader-text" id="readerText"></div>
+      <div class="chapter-nav-strip">
+        <a href="bolum21.html" class="nav-ch-btn">← Bölüm 21</a>
+        <a href="kitap-karisik.html" class="nav-ch-btn">Bölüm Listesi</a>
+        <a href="bolum23.html" id="nextBtn" class="nav-ch-btn">Sonraki Bölüm →</a>
+      </div>
+    </article>
+  </div>
+  <div class="tts-player" id="ttsPanel">
+    <span class="tts-icon">🎧</span>
+    <div class="tts-center">
+      <div class="tts-label">
+        <span>Sesli Okuma</span>
+        <span id="ttsTimeLeft"></span>
+      </div>
+      <div class="tts-progress-bar">
+        <div class="tts-progress-fill" id="ttsProgressFill"></div>
+      </div>
+    </div>
+    <div class="tts-controls">
+      <button class="tts-btn" onclick="ttsRewind()" title="Geri Al">⏮</button>
+      <button class="tts-btn tts-play-main" id="ttsPlayBtn" onclick="ttsPlay()" style="display:flex;">▶</button>
+      <button class="tts-btn tts-play-main" id="ttsPauseBtn" onclick="ttsPause()" style="display:none;">⏸</button>
+      <button class="tts-btn" onclick="ttsStop()">⏹</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

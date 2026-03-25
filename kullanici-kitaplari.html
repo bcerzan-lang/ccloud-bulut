@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kullanıcı Kitapları | CloudKitap</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon-wrap"><span>📚</span></div>
+      <span class="logo-text">CloudKitap</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span><span>Ana Sayfa</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">🔍</span><span>Keşfet</span></a>
+      <a href="kullanici-kitaplari.html" class="nav-item active"><span class="nav-icon">✍️</span><span>Kullanıcı Kitapları</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">❤️</span><span>Favoriler</span></a>
+    </nav>
+    <div class="sidebar-section-label">KATEGORİLER</div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item"><span class="nav-icon">💭</span><span>Roman</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">🌍</span><span>Klasikler</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="#" class="nav-item"><span class="nav-icon">⚙️</span><span>Ayarlar</span></a>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="topbar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Kullanıcı kitaplarında ara..." id="userBookSearch" oninput="renderUserBooks()"/>
+        <button class="search-clear" id="searchClear" onclick="document.getElementById('userBookSearch').value='';renderUserBooks()" style="display:none">✕</button>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" title="Bildirimler">🔔</button>
+        <div class="avatar">K</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="detail-page" style="max-width:1040px;">
+        <div class="breadcrumb">
+          <a href="index.html">Ana Sayfa</a>
+          <span>›</span>
+          <span style="color:var(--text)">Kullanıcı Kitapları</span>
+        </div>
+
+        <div class="detail-hero" style="align-items:flex-start;">
+          <div class="detail-info" style="max-width:520px;">
+            <h1 class="detail-title">Kullanıcı Kitapları</h1>
+            <p class="detail-synopsis" style="font-style:normal;">
+              Buradan kendi kitabını ekleyebilir, diğer kullanıcıların eklediği kitapları okuyabilir ve yorum yapabilirsin.
+              Bu özellik API üzerinden çalışır; “online” kullanmak için `server.py` ile açman yeterli.
+            </p>
+
+            <div class="detail-tags">
+              <span class="tag primary">Online</span>
+              <span class="tag">Yorumlar</span>
+              <span class="tag">Kendi kitabını yaz</span>
+            </div>
+
+            <div class="stat-chip" style="display:inline-block;margin-top:14px;">
+              <div class="sv" id="userBooksCount">0</div>
+              <div class="sl">KİTAP</div>
+            </div>
+          </div>
+
+          <div class="detail-info" style="flex:1;">
+            <h2 style="font-size:18px;font-weight:800;margin-bottom:12px;">Yeni kitap ekle</h2>
+
+            <div class="list-book-item" style="align-items:stretch;">
+              <div class="list-book-info">
+                <div class="list-book-title" style="margin-bottom:10px;">Kitap bilgileri</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+                  <input id="ubTitle" placeholder="Kitap adı" style="width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:10px;outline:none;"/>
+                  <input id="ubAuthor" placeholder="Yazar (senin adın)" style="width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:10px;outline:none;"/>
+                </div>
+                <textarea id="ubSynopsis" placeholder="Kısa özet (2-6 cümle)" rows="3" style="width:100%;resize:vertical;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:10px;outline:none;margin-bottom:10px;"></textarea>
+                <textarea id="ubContent" placeholder="Kitap metni / hikâye (tamamen özgün)" rows="8" style="width:100%;resize:vertical;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:10px;outline:none;"></textarea>
+                <div style="display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap;">
+                  <button class="btn-read" onclick="createUserBook()">+ Kitabı yayınla</button>
+                  <span id="ubStatus" style="color:var(--text2);font-size:12px;font-weight:600;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section" style="margin-top:24px;">
+          <div class="section-head">
+            <h2>Kitaplar</h2>
+            <a href="#" onclick="loadUserBooks(); return false;">Yenile →</a>
+          </div>
+          <div class="list-books" id="userBooksList"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="bn-item"><span>🏠</span><span>Ana Sayfa</span></a>
+    <a href="kullanici-kitaplari.html" class="bn-item active"><span>✍️</span><span>Yaz</span></a>
+    <a href="#" class="bn-item"><span>🔍</span><span>Keşfet</span></a>
+    <a href="#" class="bn-item"><span>👤</span><span>Profil</span></a>
+  </nav>
+
+  <script src="app.js"></script>
+  <script>
+    window.__USER_BOOKS__ = [];
+    window.addEventListener("DOMContentLoaded", () => loadUserBooks());
+  </script>
+</body>
+</html>
+

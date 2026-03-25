@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jinx — Türkçe | CloudManga</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">☁</span> CloudManga
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="#" class="active">Manga</a>
+        <a href="#">Webtoon</a>
+        <a href="#">Türkçe</a>
+        <a href="#">Popüler</a>
+      </nav>
+      <div class="nav-search">
+        <input type="text" placeholder="Manga ara..." />
+        <button class="search-btn">🔍</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="detail-hero">
+    <div class="detail-inner">
+      <div class="detail-cover jinx-cover jinx-cover-big">
+        <div class="cover-overlay">
+          <span class="cover-title">JINX</span>
+          <span class="cover-sub">Türkçe Çeviri</span>
+        </div>
+      </div>
+      <div class="detail-text">
+        <h1>Jinx</h1>
+        <div class="detail-tags">
+          <span class="tag highlight">Türkçe</span>
+          <span class="tag highlight">BL / Yaoi</span>
+          <span class="tag">18+</span>
+          <span class="tag">Webtoon</span>
+          <span class="tag">Romantik</span>
+          <span class="tag">Dramatik</span>
+          <span class="tag">Spor</span>
+        </div>
+        <p class="detail-synopsis">
+          Kim Dan, hayatının her alanında talihsizlik yaşayan genç bir fizyoterapisttir. Borçları, hasta büyükannesi ve sürekli işten atılma döngüsüyle boğuşurken, hayatının en zorlu kişisiyle tanışır: Kore'nin en güçlü MMA savaşçısı Joo Jaekyung. Efsaneye göre Jaekyung'a dokunan kişi uğursuzluk getirir. Ama Kim Dan için bu "uğursuzluk" belki de kaderini değiştirecek tek şansıdır. Güçlü ve soğuk şampiyon ile kırılgan ve mücadeleci fizyoterapist arasındaki gerilimli ilişkiyi, lCbetleri ve kaderlerini anlatan bu çarpıcı BL webtoon sizi ekrana bağlayacak.
+        </p>
+        <div class="detail-stats">
+          <div class="stat-box">
+            <div class="stat-val">9.8</div>
+            <div class="stat-label">Puan</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">2.4M</div>
+            <div class="stat-label">Görüntülenme</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">60+</div>
+            <div class="stat-label">Bölüm</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">Devam</div>
+            <div class="stat-label">Durum</div>
+          </div>
+        </div>
+        <div class="detail-actions">
+          <a href="bolum1.html" class="btn-primary">▶ 1. Bölümü Oku</a>
+          <button class="btn-secondary" onclick="toggleFav(this)">♡ Favorilere Ekle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-section">
+    <h2>Bölümler</h2>
+    <div class="chapter-list">
+      <a href="bolum1.html" class="chapter-item">
+        <div class="ch-left">
+          <span class="ch-num">Bölüm 1</span>
+          <span class="ch-title">Uğursuzluk</span>
+        </div>
+        <span class="ch-right">Türkçe</span>
+      </a>
+      <a href="bolum2.html" class="chapter-item">
+        <div class="ch-left">
+          <span class="ch-num">Bölüm 2</span>
+          <span class="ch-title">Sözleşme</span>
+        </div>
+        <span class="ch-right">Türkçe</span>
+      </a>
+      <a href="bolum3.html" class="chapter-item">
+        <div class="ch-left">
+          <span class="ch-num">Bölüm 3</span>
+          <span class="ch-title">İlk Seans</span>
+        </div>
+        <span class="ch-right">Türkçe</span>
+      </a>
+      <a href="bolum4.html" class="chapter-item">
+        <div class="ch-left">
+          <span class="ch-num">Bölüm 4</span>
+          <span class="ch-title">Sınırlar</span>
+        </div>
+        <span class="ch-right">Türkçe</span>
+      </a>
+      <a href="bolum5.html" class="chapter-item">
+        <div class="ch-left">
+          <span class="ch-num">Bölüm 5</span>
+          <span class="ch-title">Maç Günü</span>
+        </div>
+        <span class="ch-right">Türkçe</span>
+      </a>
+      <div class="chapter-item" style="opacity:0.4; cursor:default; pointer-events:none;">
+        <div class="ch-left">
+          <span class="ch-num">Bölüm 6+</span>
+          <span class="ch-title">Yakında eklenecek...</span>
+        </div>
+        <span class="ch-right">Bekle</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span>☁</span> CloudManga</div>
+      <p>© 2025 CloudManga — Tüm hakları saklıdır.</p>
+      <div class="footer-links">
+        <a href="#">Gizlilik</a>
+        <a href="#">Kullanım Koşulları</a>
+        <a href="#">İletişim</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

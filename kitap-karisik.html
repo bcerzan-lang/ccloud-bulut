@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karışık — Sharon M. Draper | CloudKitap</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon-wrap"><span>📚</span></div>
+      <span class="logo-text">CloudKitap</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span><span>Ana Sayfa</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">🔍</span><span>Keşfet</span></a>
+      <a href="#" class="nav-item active"><span class="nav-icon">📖</span><span>Kitaplığım</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">❤️</span><span>Favoriler</span></a>
+    </nav>
+    <div class="sidebar-section-label">KATEGORİLER</div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item"><span class="nav-icon">🌱</span><span>Gençlik</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">💭</span><span>Roman</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="#" class="nav-item"><span class="nav-icon">⚙️</span><span>Ayarlar</span></a>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="topbar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Kitap, yazar veya tür ara..."/>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn">🔔</button>
+        <div class="avatar">K</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="detail-page">
+
+        <div class="breadcrumb">
+          <a href="index.html">Ana Sayfa</a>
+          <span>›</span>
+          <a href="#">Gençlik Romanı</a>
+          <span>›</span>
+          <span style="color:var(--text)">Karışık</span>
+        </div>
+
+        <div class="detail-hero">
+          <div class="detail-book-3d">
+            <div class="book-cover karisik-cover detail-book-cover" onclick="window.location.href='bolum1.html'"></div>
+          </div>
+          <div class="detail-info">
+            <h1 class="detail-title">Karışık</h1>
+            <p class="detail-author">Sharon M. Draper</p>
+            <div class="detail-tags">
+              <span class="tag primary">Türkçe</span>
+              <span class="tag primary">Gençlik Romanı</span>
+              <span class="tag">Psikolojik</span>
+              <span class="tag">Engelli Hakları</span>
+              <span class="tag">İlham Verici</span>
+              <span class="tag">Ödüllü</span>
+            </div>
+            <p class="detail-synopsis">
+              "Beynimde milyonlarca kelime var. Tek bir tanesini bile söyleyemiyorum."<br/><br/>
+              On birinci sınıf öğrencisi Melody, beyin felcinden kaynaklanan bedensel engellerine rağmen kendini hapseden kasalarda son derece keskin bir zekâya sahiptir. Hiç kimse onun içindeki fırtınayı, aşkı, öfkeyi, korkuyu bilmiyor. Ta ki Melody, "konuşma bilgisayarı" olarak adlandırdığı bir cihazla sesini bulmaya başlayana dek. Bu, yalnızca bir kızın sesi değil; görülmek, duyulmak ve anlaşılmak isteyen herkesin hikayesidir.
+            </p>
+            <div class="detail-stats">
+              <div class="stat-chip"><div class="sv">⭐ 4.9</div><div class="sl">PUAN</div></div>
+              <div class="stat-chip"><div class="sv">329</div><div class="sl">SAYFA</div></div>
+              <div class="stat-chip"><div class="sv">27</div><div class="sl">BÖLÜM</div></div>
+
+              <div class="stat-chip"><div class="sv">2010</div><div class="sl">YAYIM</div></div>
+            </div>
+            <div class="detail-actions">
+              <a href="bolum1.html" class="btn-read">▶ Okumaya Başla</a>
+              <button class="btn-save" onclick="toggleSave(this)">+ Kitaplığıma Ekle</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-list-section">
+          <h2>Bölümler</h2>
+          <div class="chapter-list">
+            <a href="bolum1.html" class="chapter-row">
+              <span class="ch-num">Bölüm 1</span>
+              <span class="ch-title">Beyin</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum2.html" class="chapter-row">
+              <span class="ch-num">Bölüm 2</span>
+              <span class="ch-title">Ev</span>
+              <span class="ch-pages">~42 sayfa</span>
+            </a>
+            <a href="bolum3.html" class="chapter-row">
+              <span class="ch-num">Bölüm 3</span>
+              <span class="ch-title">Okul</span>
+              <span class="ch-pages">~45 sayfa</span>
+            </a>
+            <a href="bolum4.html" class="chapter-row">
+              <span class="ch-num">Bölüm 4</span>
+              <span class="ch-title">Teknoloji</span>
+              <span class="ch-pages">~40 sayfa</span>
+            </a>
+            <a href="bolum5.html" class="chapter-row">
+              <span class="ch-num">Bölüm 5</span>
+              <span class="ch-title">Takım</span>
+              <span class="ch-pages">~44 sayfa</span>
+            </a>
+            <a href="bolum6.html" class="chapter-row">
+              <span class="ch-num">Bölüm 6</span>
+              <span class="ch-title">Yarışma</span>
+              <span class="ch-pages">~46 sayfa</span>
+            </a>
+            <a href="bolum7.html" class="chapter-row">
+              <span class="ch-num">Bölüm 7</span>
+              <span class="ch-title">Uçuş</span>
+              <span class="ch-pages">~44 sayfa</span>
+            </a>
+            <a href="bolum8.html" class="chapter-row">
+              <span class="ch-num">Bölüm 8</span>
+              <span class="ch-title">Ses</span>
+              <span class="ch-pages">~42 sayfa</span>
+            </a>
+            <a href="bolum9.html" class="chapter-row">
+              <span class="ch-num">Bölüm 9</span>
+              <span class="ch-title">Yeni Yıl</span>
+              <span class="ch-pages">~40 sayfa</span>
+            </a>
+            <a href="bolum10.html" class="chapter-row">
+              <span class="ch-num">Bölüm 10</span>
+              <span class="ch-title">Kütüphane</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum11.html" class="chapter-row">
+              <span class="ch-num">Bölüm 11</span>
+              <span class="ch-title">Anlaşmazlık</span>
+              <span class="ch-pages">~36 sayfa</span>
+            </a>
+            <a href="bolum12.html" class="chapter-row">
+              <span class="ch-num">Bölüm 12</span>
+              <span class="ch-title">Konser</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum13.html" class="chapter-row">
+              <span class="ch-num">Bölüm 13</span>
+              <span class="ch-title">Kayıp</span>
+              <span class="ch-pages">~40 sayfa</span>
+            </a>
+            <a href="bolum14.html" class="chapter-row">
+              <span class="ch-num">Bölüm 14</span>
+              <span class="ch-title">İlkbahar</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum15.html" class="chapter-row">
+              <span class="ch-num">Bölüm 15</span>
+              <span class="ch-title">Gelecek</span>
+              <span class="ch-pages">~42 sayfa</span>
+            </a>
+            <a href="bolum16.html" class="chapter-row">
+              <span class="ch-num">Bölüm 16</span>
+              <span class="ch-title">Ulusal Hazırlık</span>
+              <span class="ch-pages">~40 sayfa</span>
+            </a>
+            <a href="bolum17.html" class="chapter-row">
+              <span class="ch-num">Bölüm 17</span>
+              <span class="ch-title">Annenin Korkusu</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum18.html" class="chapter-row">
+              <span class="ch-num">Bölüm 18</span>
+              <span class="ch-title">Penny'nin Dünyası</span>
+              <span class="ch-pages">~36 sayfa</span>
+            </a>
+            <a href="bolum19.html" class="chapter-row">
+              <span class="ch-num">Bölüm 19</span>
+              <span class="ch-title">Uçuş Günü</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum20.html" class="chapter-row">
+              <span class="ch-num">Bölüm 20</span>
+              <span class="ch-title">Büyük Sahne</span>
+              <span class="ch-pages">~40 sayfa</span>
+            </a>
+            <a href="bolum21.html" class="chapter-row">
+              <span class="ch-num">Bölüm 21</span>
+              <span class="ch-title">Hayal Kırıklığı</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum22.html" class="chapter-row">
+              <span class="ch-num">Bölüm 22</span>
+              <span class="ch-title">Gece Konuşması</span>
+              <span class="ch-pages">~36 sayfa</span>
+            </a>
+            <a href="bolum23.html" class="chapter-row">
+              <span class="ch-num">Bölüm 23</span>
+              <span class="ch-title">Tanınma</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum24.html" class="chapter-row">
+              <span class="ch-num">Bölüm 24</span>
+              <span class="ch-title">Eve Dönüş</span>
+              <span class="ch-pages">~40 sayfa</span>
+            </a>
+            <a href="bolum25.html" class="chapter-row">
+              <span class="ch-num">Bölüm 25</span>
+              <span class="ch-title">Okul Gazetesi</span>
+              <span class="ch-pages">~38 sayfa</span>
+            </a>
+            <a href="bolum26.html" class="chapter-row">
+              <span class="ch-num">Bölüm 26</span>
+              <span class="ch-title">Mrs. V'nin Hediyesi</span>
+              <span class="ch-pages">~40 sayfa</span>
+            </a>
+            <a href="bolum27.html" class="chapter-row" style="border-color:rgba(108,99,255,0.4);background:rgba(108,99,255,0.05);">
+              <span class="ch-num" style="color:var(--accent);">Bölüm 27 ✦</span>
+              <span class="ch-title">Melody — Final</span>
+              <span class="ch-pages">~42 sayfa</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="bn-item"><span>🏠</span><span>Ana Sayfa</span></a>
+    <a href="#" class="bn-item"><span>🔍</span><span>Keşfet</span></a>
+    <a href="#" class="bn-item active"><span>📖</span><span>Kitaplığım</span></a>
+    <a href="#" class="bn-item"><span>👤</span><span>Profil</span></a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

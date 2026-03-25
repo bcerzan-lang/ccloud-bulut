@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jinx — Bölüm 1: Uğursuzluk | CloudManga</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="reader-header">
+    <div class="reader-nav">
+      <a href="manga-jinx.html">← Geri</a>
+      <span style="color:var(--border)">|</span>
+      <span class="reader-title" id="readerTitle">Jinx — Bölüm 1: Uğursuzluk</span>
+    </div>
+    <div class="reader-controls">
+      <select id="chapterSelect" onchange="goToChapter(this.value)" style="background:var(--bg3);color:var(--text);border:1px solid var(--border);padding:6px 12px;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;">
+        <option value="1">Bölüm 1</option>
+        <option value="2">Bölüm 2</option>
+        <option value="3">Bölüm 3</option>
+        <option value="4">Bölüm 4</option>
+        <option value="5">Bölüm 5</option>
+      </select>
+      <a href="#" id="prevChBtn" class="ctrl-btn">← Önceki</a>
+      <a href="#" id="nextChBtn" class="ctrl-btn">Sonraki →</a>
+    </div>
+  </header>
+
+  <div class="reader-content" id="readerContent">
+    <!-- Chapters rendered by JS -->
+  </div>
+
+  <div class="chapter-nav-bottom">
+    <a href="#" id="prevChBtn2">← Önceki Bölüm</a>
+    <a href="manga-jinx.html">Bölüm Listesi</a>
+    <a href="#" id="nextChBtn2">Sonraki Bölüm →</a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span>☁</span> CloudManga</div>
+      <p>© 2025 CloudManga</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

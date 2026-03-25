@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Çalıkuşu — Reşat Nuri Güntekin | CloudKitap</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon-wrap"><span>📚</span></div>
+      <span class="logo-text">CloudKitap</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span><span>Ana Sayfa</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">🔍</span><span>Keşfet</span></a>
+      <a href="#" class="nav-item active"><span class="nav-icon">📖</span><span>Kitaplığım</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">❤️</span><span>Favoriler</span></a>
+    </nav>
+    <div class="sidebar-section-label">KATEGORİLER</div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item"><span class="nav-icon">💭</span><span>Roman</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">🌍</span><span>Klasikler</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="#" class="nav-item"><span class="nav-icon">⚙️</span><span>Ayarlar</span></a>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="topbar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Kitap, yazar veya tür ara..."/>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn">🔔</button>
+        <div class="avatar">K</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="detail-page">
+
+        <div class="breadcrumb">
+          <a href="index.html">Ana Sayfa</a>
+          <span>›</span>
+          <a href="#">Roman</a>
+          <span>›</span>
+          <span style="color:var(--text)">Çalıkuşu</span>
+        </div>
+
+        <div class="detail-hero">
+          <div class="detail-book-3d">
+            <div class="book-cover calikusu-cover detail-book-cover" onclick="window.location.href='calikusu-bolum1.html'"></div>
+          </div>
+          <div class="detail-info">
+            <h1 class="detail-title">Çalıkuşu</h1>
+            <p class="detail-author">Reşat Nuri Güntekin</p>
+            <div class="detail-tags">
+              <span class="tag primary">Türkçe</span>
+              <span class="tag primary">Roman</span>
+              <span class="tag">Klasik</span>
+              <span class="tag">Duygusal</span>
+              <span class="tag">Dönem</span>
+            </div>
+            <p class="detail-synopsis">
+              Bu sayfa, “Karışık” kitabı tarzında hazırlanmış Çalıkuşu kitap detay ekranıdır.<br/><br/>
+              Not: Telif nedeniyle bölümler şu an <em>placeholder</em> içerik ile yüklüdür. Bölüm metinlerini sen sağlarsan, okuyucu ekranlarına aynen yerleştirebilirim.
+            </p>
+            <div class="detail-stats">
+              <div class="stat-chip"><div class="sv">⭐ 4.8</div><div class="sl">PUAN</div></div>
+              <div class="stat-chip"><div class="sv">—</div><div class="sl">SAYFA</div></div>
+              <div class="stat-chip"><div class="sv">12</div><div class="sl">BÖLÜM</div></div>
+              <div class="stat-chip"><div class="sv">1922</div><div class="sl">YAYIM</div></div>
+            </div>
+            <div class="detail-actions">
+              <a href="calikusu-bolum1.html" class="btn-read">▶ Okumaya Başla</a>
+              <button class="btn-save" onclick="toggleSave(this)">+ Kitaplığıma Ekle</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-list-section">
+          <h2>Bölümler</h2>
+          <div class="chapter-list">
+            <a href="calikusu-bolum1.html" class="chapter-row">
+              <span class="ch-num">Bölüm 1</span>
+              <span class="ch-title">Başlangıç</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum2.html" class="chapter-row">
+              <span class="ch-num">Bölüm 2</span>
+              <span class="ch-title">Yeni Sayfa</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum3.html" class="chapter-row">
+              <span class="ch-num">Bölüm 3</span>
+              <span class="ch-title">Yolculuk</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum4.html" class="chapter-row">
+              <span class="ch-num">Bölüm 4</span>
+              <span class="ch-title">Karşılaşmalar</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum5.html" class="chapter-row" style="border-color:rgba(108,99,255,0.4);background:rgba(108,99,255,0.05);">
+              <span class="ch-num" style="color:var(--accent);">Bölüm 5 ✦</span>
+              <span class="ch-title">Devam</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum6.html" class="chapter-row">
+              <span class="ch-num">Bölüm 6</span>
+              <span class="ch-title">İlk Ders</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum7.html" class="chapter-row">
+              <span class="ch-num">Bölüm 7</span>
+              <span class="ch-title">Sesler ve Susuşlar</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum8.html" class="chapter-row">
+              <span class="ch-num">Bölüm 8</span>
+              <span class="ch-title">Küçük Zafer</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum9.html" class="chapter-row">
+              <span class="ch-num">Bölüm 9</span>
+              <span class="ch-title">Gölge</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum10.html" class="chapter-row">
+              <span class="ch-num">Bölüm 10</span>
+              <span class="ch-title">Sınır</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum11.html" class="chapter-row">
+              <span class="ch-num">Bölüm 11</span>
+              <span class="ch-title">Ayna</span>
+              <span class="ch-pages">—</span>
+            </a>
+            <a href="calikusu-bolum12.html" class="chapter-row">
+              <span class="ch-num">Bölüm 12</span>
+              <span class="ch-title">Yol</span>
+              <span class="ch-pages">—</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="bn-item"><span>🏠</span><span>Ana Sayfa</span></a>
+    <a href="#" class="bn-item"><span>🔍</span><span>Keşfet</span></a>
+    <a href="#" class="bn-item active"><span>📖</span><span>Kitaplığım</span></a>
+    <a href="#" class="bn-item"><span>👤</span><span>Profil</span></a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
