@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hesap ve Sıralama | CloudKitap</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="main-wrap" style="margin-left:0;">
+    <header class="topbar">
+      <a href="index.html" class="reader-back">← Ana Sayfa</a>
+      <div class="reader-topbar-title">Hesap ve Sıralama</div>
+      <div class="avatar">K</div>
+    </header>
+    <main class="content">
+      <div class="detail-page" style="max-width:980px;">
+        <div class="detail-hero" style="align-items:flex-start;">
+          <div class="detail-info">
+            <h1 class="detail-title">Hesap Aç / Giriş Yap</h1>
+            <p class="detail-synopsis" style="font-style:normal;">
+              Kitap açmak için puan gerekir. Bir kitabı açma maliyeti 10 puandır.
+              İlk seçtiğin kitap ücretsiz açılır.
+            </p>
+            <div style="display:grid;gap:10px;max-width:420px;">
+              <input id="accUsername" placeholder="Kullanıcı adı" style="width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:10px;outline:none;"/>
+              <input id="accPassword" type="password" placeholder="Şifre" style="width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:10px;outline:none;"/>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
+              <button class="btn-read" onclick="registerAccount()">Hesap Aç</button>
+              <button class="btn-save" onclick="loginAccount()">Giriş Yap</button>
+              <button class="btn-save" onclick="logoutAccount()">Çıkış Yap</button>
+            </div>
+            <p id="accStatus" style="margin-top:10px;color:var(--text2);font-size:12px;"></p>
+          </div>
+          <div class="detail-info">
+            <h2 style="font-size:18px;font-weight:700;">Aktif Hesap</h2>
+            <div class="chapter-list" style="margin-top:12px;">
+              <div class="chapter-row"><span class="ch-num">Kullanıcı</span><span class="ch-title" id="currentUserName">Misafir</span></div>
+              <div class="chapter-row"><span class="ch-num">Puan</span><span class="ch-title" id="currentUserPoints">0</span></div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Okuma / Yazma Sıralaması</h2>
+          </div>
+          <div class="list-book-item">
+            <div class="list-book-info">
+              <table style="width:100%;border-collapse:collapse;">
+                <thead>
+                  <tr style="text-align:left;color:var(--text2);font-size:12px;">
+                    <th>#</th><th>Kullanıcı</th><th>Okunan</th><th>Yazılan</th><th>Puan</th><th>Ödül</th>
+                  </tr>
+                </thead>
+                <tbody id="leaderboardBody" style="font-size:13px;"></tbody>
+              </table>
+              <p style="margin-top:10px;color:var(--text3);font-size:12px;">
+                Günlük ödül: 1. +10 puan, 2. +5 puan, 3. +2 puan.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", async () => {
+      syncUserUI();
+      await refreshCurrentUserProfile().catch(() => {});
+      await loadLeaderboard();
+    });
+  </script>
+</body>
+</html>
