@@ -5,6 +5,10 @@ from datetime import datetime, timezone
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
+app = Flask (__name__)
+CORS(app)
+
+
 
 APP_DIR = os.path.abspath(os.path.dirname(__file__))
 DB_PATH = os.path.join(APP_DIR, "cloudkitap.db")
