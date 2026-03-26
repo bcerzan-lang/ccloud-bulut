@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Çiftlikteki İsyan | CloudBook</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    .book-detail {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .book-header {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      align-items: flex-start;
+    }
+    .book-cover {
+      width: 280px;
+      height: 400px;
+      background: linear-gradient(135deg, #654321 0%, #8B4513 50%, #5D4037 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 4rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+    }
+    .book-info h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .book-info .author {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+    .book-meta {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    .book-meta span {
+      background: var(--surface2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .book-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 30px;
+    }
+    .btn-read-book {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-read-book:hover {
+      background: var(--primary-hover);
+    }
+    .book-content {
+      background: var(--surface);
+      padding: 40px;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+    .chapter {
+      margin-bottom: 60px;
+    }
+    .chapter h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--primary);
+      border-bottom: 3px solid var(--border);
+      padding-bottom: 15px;
+    }
+    .chapter h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 30px 0 15px 0;
+      color: var(--text);
+    }
+    .chapter p {
+      font-size: 1.15rem;
+      line-height: 2;
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+    .quote {
+      background: var(--surface2);
+      border-left: 5px solid var(--primary);
+      padding: 25px 30px;
+      margin: 35px 0;
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.8;
+    }
+    .rule-box {
+      background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+    }
+    .rule-box h4 {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .rule-box ol {
+      font-size: 1.15rem;
+      line-height: 2.2;
+      padding-left: 30px;
+    }
+    .rule-box li {
+      margin-bottom: 12px;
+    }
+    @media (max-width: 768px) {
+      .book-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .book-cover {
+        width: 200px;
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body class="reader-layout">
+  <div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
+  
+  <header class="reader-topbar">
+    <a href="index.html" class="reader-back">← Ana Sayfa</a>
+    <div class="reader-topbar-title">Çiftlikteki İsyan</div>
+    <div class="reader-topbar-controls">
+      <button class="r-ctrl-btn" id="fontPanelBtn" onclick="toggleFontPanel()">Aa</button>
+    </div>
+  </header>
+
+  <div class="reader-body">
+    <div class="book-detail">
+      <!-- Book Header -->
+      <div class="book-header">
+        <div class="book-cover">🐷</div>
+        <div class="book-info">
+          <h1>Çiftlikteki İsyan</h1>
+          <p class="author">Bir Siyasi Masal</p>
+          <div class="book-meta">
+            <span>📖 124 Sayfa</span>
+            <span>🏷️ Alegori</span>
+            <span>📅 1945</span>
+            <span>⭐ 9.1/10</span>
+          </div>
+          <p class="book-description">
+            İngiltere'nin yeşil ovalarında, Bay Smith'in sahibi olduğu topraklarda yaşayan çeşitli hayvanlar, uzun yıllardır süren sömürüye karşı bir araya gelirler. En yaşlı ve bilge bir domuzun öncülüğünde başlayan hareket, kısa sürede bir devrime dönüşür. Ancak iktidarın ellerine geçmesiyle birlikte, yeni yöneticilerin vaatleri yerine getirilmedikçe, özgürlük hayali gittikçe uzaklaşmaya başlar. Bu alegorik hikaye, iktidarın doğası ve devrimlerin nasıl yozlaşabileceği üzerine derin bir inceleme sunar.
+          </p>
+          <button class="btn-read-book" onclick="openBook('ciftlikisyan')">📖 Kitabı Oku (10 Puan)</button>
+        </div>
+      </div>
+
+      <!-- Book Content -->
+      <div class="book-content" id="bookContent" style="display: none;">
+        
+        <!-- Chapter I -->
+        <div class="chapter">
+          <h2>Birinci Bölüm: Bilge'nin Son Sözleri</h2>
+          
+          <p>Gece yarısı yaklaşırken, Bay Smith, Topraklar Çiftliği'nin sahibi, son biralarını yudumlarken tavuk kümesinin gürültüsünü duydu. Fazla içkili olduğu için silahına bile dokunmadan horuldamaya başladı. Bu sessizlik, bambaşka bir şeyin başlangıcıydı.</p>
+
+          <p>Çiftliğin ana ahırında o gece olağanüstü bir toplantı gerçekleşiyordu. Bilge, çiftlikteki en yaşlı domuz, yılların birikimiyle dolu gözlerle platformun üzerinde duruyordu. Beyaz kılları ve sakin duruşu, saygı uyandıran bir havası vardı.</p>
+
+          <p>"Kardeşlerim," diye seslendi Bilge topluluğa, "bu gece buraya toplandık çünkü hissediyorum ki ömrümün son demlerindeyim. Ama son nefesimi vermeden önce, yaşadıklarımı ve öğrendiklerimi sizinle paylaşmalıyım."</p>
+
+          <p>Hayvanlar sessizce dinliyordu. Kediler raflarda, atlar ayakta, koyunlar bir köşede, tavuklar tüneklerde, hepsi olağanüstü bir ciddiyetle Bilge'yi izliyordu.</p>
+
+          <p>"Bakın çevrenize," devam etti Bilge. "Hayatlarımız ne kadar da zor, ne kadar da adaletsiz! İnsanlar olmadan biz de yaşayabiliriz, hatta daha iyi yaşayabiliriz. Onlar bizim ürettiğimiz her şeyi alıyorlar, biz ise açlıkla ve yorgunlukla boğuşuyoruz."</p>
+
+          <div class="quote">
+            "Birlikte çalışan, birlikte direnen, birlikte özgür kalır! İnsanların zincirlerinden kurtulabilirsek, bu topraklar gerçekten bizim olacak."
+          </div>
+
+          <p>Bilge, hayvanların ezberlediği bir şarkı söylemeye başladı. Melodi çiftliğin her köşesine yayıldı:</p>
+
+          <div class="quote">
+            "Zincirler kırılacak, özgürlük şafak vakti,<br>
+            Yeşil ovalarda doğan yeni güneş,<br>
+            İnsanların gölgesi kalkacak topraklarımızdan,<br>
+            Kardeşlik çiçeklenecek her yerde!"
+          </div>
+
+          <p>Toplantı sona erdiğinde, her hayvanın kalbinde bir umut tohumu ekilmişti. Bilge üç gün sonra öldü, ama bıraktığı miras yaşamaya devam edecekti. Hayvanlar onu çiftliğin doğu tarafındaki bir meşenin altına gömdüler ve orayı kutsal bir yer olarak kabul ettiler.</p>
+
+          <p>Akıl ve cesaretin sembolü olan Bilge, artık hayvanların hafızasında yaşıyordu. Onun öğretileri, yaklaşan devrimin temelini oluşturacaktı.</p>
+        </div>
+
+        <!-- Chapter II -->
+        <div class="chapter">
+          <h2>İkinci Bölüm: Yükselen Ayaklanma</h2>
+          
+          <p>Bilge'nin ölümünden sonra, iki genç domuz öne çıktı: Kar ve Fırtına. Kar, hızlı düşünen ve konuşan, ileri görüşlü bir liderdi. Fırtına ise daha sessiz, hesaplayıcı ve stratejik zekâya sahipti. Birlikte Bilge'nin öğretilerini bir ideoloji haline getirdiler: "Hayvan Kardeşliği".</p>
+
+          <p>Her gece, Smith uyuduktan sonra, ahırda gizli toplantılar düzenleniyordu. Kar, diğer hayvanlara okuma yazma öğretmeye çalışıyordu. En zeki hayvanlar alfabe'yi öğrenebildi, ama çoğu sadece temel harfleri kapabildi. Atlar Büyük Çelik ve Yonca, ne kadar çabalasalar da harfleri ezberleyemediler. Ama onların samimiyeti ve çalışkanlığı herkese örnek oluyordu.</p>
+
+          <p>Bir Mart sabahı, her şey değişti. Smith ve yardımcıları çiftliği ihmal etmişti. Hayvanlar açtı, kümesler temizlenmemişti, ahır pislik içindeydi. Sabırları taşmıştı. Yonca'nın ön ayaklarını yere vurmasıyla birlikte, beklenen an gelmişti.</p>
+
+          <p>"Kardeşler! Şimdi ya asla!" diye kükredi Yonca.</p>
+
+          <p>Sonra her şey çok hızlı gelişti. İnekler homurdandı, atlar kişnedi, tavuklar öttü, domuzlar hiddetle homurdandı. Smith ve çalışanları paniğe kapılarak çiftliği terk ettiler. Hayvanlar ilk kez kendi topraklarında özgürdüler.</p>
+
+          <div class="quote">
+            "İki ayak kötüdür, dört ayak iyidir!"
+          </div>
+
+          <p>İlk işleri, insanların bıraktığı izleri yok etmek oldu. Koşum takımları, kırbaçlar, zincirler hepsi bir çukura atıldı ve yakıldı. Smith'in evindeki bira fıçıları da aynı akıbete uğradı. Hayvanlar bu sembolik hareketle yeni bir dönemin başladığını ilan ettiler.</p>
+
+          <div class="rule-box">
+            <h4>🐷 Hayvanların Temel İlkeleri 🐷</h4>
+            <ol>
+              <li>İki bacak üzerinde yürüyen her canlı düşmandır</li>
+              <li>Dört bacaklı veya kanatlı her canlı dosttur</li>
+              <li>Kıyafet giymek yasaktır</li>
+              <li>Yatakta uyumak yasaktır</li>
+              <li>İçki içmek yasaktır</li>
+              <li>Bir hayvan başka bir hayvanı öldüremez</li>
+              <li>Tüm hayvanlar eşit haklara sahiptir</li>
+            </ol>
+          </div>
+
+          <p>Kar, çiftlik binasının yan tarafına bu ilkeleri büyük harflerle yazdı. Her hayvan ezberlemeye çalıştı. En çok sevilen madde sonuncusuydu: "Tüm hayvanlar eşit haklara sahiptir." Bu cümle, her şeyin temeliydi.</p>
+
+          <p>Çiftliğin ismi de değiştirildi. Artık "Topraklar Çiftliği" değil, "Hayvanlar Çiftliği" olarak anılacaktı. Ve her sabah, bayrak çekilirken ve akşam indirilirken, Bilge'nin şarkısı söyleniyordu. Ütopya kurulmuş gibi görünüyordu.</p>
+        </div>
+
+        <!-- Chapter III -->
+        <div class="chapter">
+          <h2>Üçüncü Bölüm: Yönetimin Ellere Geçmesi</h2>
+          
+          <p>İlk hasat, hayvanların gördüğü en bereketli dönemdi. Buğday tarlaları altın sarısıydı, yumurtalar bolca geliyordu, süt akıyordu. Herkes çok çalışıyordu ama mutluydu çünkü meyvelerini kendileri yiyorlardı.</p>
+
+          <p>Büyük Çelik ve Yonca, diğerlerinden daha fazla çalışıyorlardı. Büyük Çelik'in gücü efsaneydi. Demir gibi kasları, dağları bile yerinden oynatabilirdi. Sloganı basitti ama etkiliydi: "Daha çok çalışmalıyım!" Bu sözü her zorlukta, her zorlu işte tekrar ederdi.</p>
+
+          <p>Yonca ise daha nazikti. Genç hayvanlara bakar, yaralıları tedavi eder, herkese destek olurdu. Onun merhameti, çiftliğin ruhuydu.</p>
+
+          <p>Ama domuzlar çalışmıyordu. Kar ve Fırtına, "yönetimsel görevler" ile meşguldüler. Ofis binasının içinde toplantılar yapıyor, planlar hazırlıyorlardı. Diğer hayvanlar anlamıyordu ama domuzlar "beyin işi" yaptıklarını söylüyorlardı.</p>
+
+          <p>Meşhur Konuşmacı Sincap, domuzların sözcüsü olarak görev yapıyordu. Onun pürüzsüz sözleri ve ikna edici tonuyla, her şey mantıklı görünüyordu.</p>
+
+          <div class="quote">
+            "Domuzlar çiftliği yönetmek için çalışıyorlar. Bu çok zor bir iş ve beyin gücü gerektiriyor. Eğer onlar bu işi yapmasa, çiftlik dağılır, hepimiz aç kalırız."
+          </div>
+
+          <p>Sütlerin ve yumurtaların bir kısmı gizemli bir şekilde kaybolmaya başladı. Sincap açıkladı: "Domuzların sağlığı için gereklidir. Zihinsel çalışma çok yorucudur ve domuzlar güçlü kalmalı ki çiftliği doğru yönetebilsinler. Bu hepimizin yararınadır."</p>
+
+          <p>Yonca şüpheyle kafasını salladı. Mantıklı geliyordu ama içinde bir ses, bir şeylerin yanlış gittiğini söylüyordu. "Tüm hayvanlar eşit" dememiş miydiler? Peki neden bazı hayvanlar diğerlerinden daha fazla yiyordu?</p>
+        </div>
+
+        <!-- Chapter IV -->
+        <div class="chapter">
+          <h2>Dördüncü Bölüm: Savaş ve Zafer</h2>
+          
+          <p>Bir ay sonra, Smith geri gelmeye çalıştı. Yirmi adamıyla birlikte, silahlı ve öfkeli, çiftliğin kapısına dayandılar.</p>
+
+          <p>Ama hayvanlar hazırlıklıydılar. Kar, savunma stratejileri hazırlamıştı. Atlar siper aldı, inekler hazır bekledi, tavuklar ve ördekler geri hizmetteydiler. Domuzlar ise komuta merkezindeydiler.</p>
+
+          <p>Smith'in adamları ilk saldırıyı düzenlediğinde, Büyük Çelik öne fırladı. İki bacaklı saldırganı bir tekme ile yere devirdi. Diğer hayvanlar cesaretlendi ve saldırdılar. Yumruklar, boynuzlar, dişler, tırnaklar... İnsanlar paniğe kapıldılar ve kaçtılar.</p>
+
+          <div class="quote">
+            "Hayvanlar Çiftliği Savaşı" zaferle sonuçlandı! Büyük Çelik ve Kar kahraman ilan edildiler."
+          </div>
+
+          <p>Şeref günü düzenlendi. Smith'in tüfeği ve şapkası ganimet olarak sergilendi. Büyük Çelik'e "Çiftliğin Kahramanı" madalyası verildi. Kar, stratejik dehası için övgüler yağdırıldı.</p>
+
+          <p>Ama Fırtına sessizce izliyordu. Gözleri Kar'da ve onun övgülerindeydi. Bir şeyler planlıyordu ama kimse fark etmiyordu.</p>
+        </div>
+
+        <!-- Chapter V -->
+        <div class="chapter">
+          <h2>Beşinci Bölüm: İktidar Mücadelesi</h2>
+          
+          <p>Kar'ın büyük projesi vardı: bir değirmen inşa etmek. Bu, çiftliği modernleştirecek, elektrik üretecek, makineler çalıştıracaktı. Hayvanlar daha az çalışacak, daha çok ürün alınacaktı.</p>
+
+          <p>Fırtına ise farklı düşünüyordu. "Önce yiyecek," diyordu. "Önce karnımızı doyuralım, sonra lüks projelere bakarız."</p>
+
+          <p>İki domuz arasındaki anlaşmazlık büyüdü. Her pazar günü toplanan hayvanlar, bu iki liderin tartışmalarına tanık oluyordu. Kar, devrimci coşkuyla konuşuyor; Fırtına, pratik mantıkla cevap veriyordu.</p>
+
+          <p>Bir gece, her şey değişti. Pazar toplantısında Kar konuşurken, Fırtına gizemli bir ses çıkardı. Dışarıda bekleyen dokuz dev köpek - Fırtına'nın daha önce çaldığı ve gizlice eğittiği yavrular - salona daldılar.</p>
+
+          <p>Kar kaçmak zorunda kaldı. Köpekler onu kovaladılar, ısırdılar, sonunda çiftliğin dışına sürdüler. Bir daha asla görünmedi.</p>
+
+          <div class="quote">
+            "Kar, bu gece ortaya çıktığı yerde bir casustu. Bizim düşmanlarımızla iş birliği yapıyordu. Onu kovalamak zorunda kaldık."
+          </div>
+
+          <p>Sincap bu açıklamayı yaptı. Hayvanlar şoktaydı ama Sincap ikna ediciydi. "Fırtına tek lider olarak kalmak zorunda. Kar tehlikeliydi."</p>
+
+          <p>Pazar toplantıları iptal edildi. Kararları artık sadece Fırtına veriyordu. Büyük Çelik her zaman dediği gibi tekrarladı: "Fırtına haklıdır."</p>
+
+          <p>Yonca ise endişeliydi. Kar gerçekten casus muydu? Yoksa bu bir komplo muydu? Ama soru sormak cesaret gerektiriyordu ve cesaret pahalıydı.</p>
+        </div>
+
+        <!-- Chapter VI -->
+        <div class="chapter">
+          <h2>Altıncı Bölüm: Yükselen Zorluklar</h2>
+          
+          <p>Değirmen inşa edildi. Ama şiddetli bir fırtına geldi ve yıktı. Kaynaklar boşa gitmişti. Fırtına, Kar'ı suçladı: "Onun temelsiz projesiydi bu. Şimdi yeniden inşa etmeliyiz."</p>
+
+          <p>Hayvanlar yeniden çalıştılar. Kış gelmişti, kar kaplamıştı ovaları. Yiyecek azaldı. Rasyonlar düşürüldü. Domuzlar ve köpekler hariç, herkes daha az yiyordu.</p>
+
+          <p>Ama Sincap her zaman bir açıklaması vardı:</p>
+
+          <div class="quote">
+            "Dışarıda düşmanlarımız var. Kar onlarla iş birliği yapıyor. Bu yüzden zorluk çekiyoruz. Ama sabredin, zafer bizim olacak!"
+          </div>
+
+          <p>Büyük Çelik inanıyordu. Her gün daha çok çalışıyordu. Yonca ise zayıflıyordu ama yine de diğerlerine yardım ediyordu.</p>
+
+          <p>Bir gece, patlama oldu. İnsanlar tekrar saldırmaya çalıştılar. Ama hayvanlar yine savundular çiftliği. Savaşta, insanlar değirmeni havaya uçurdular - yine.</p>
+
+          <p>"Bu Kar'ın işi!" diye bağırdı Fırtına. "Onların ajanları!"</p>
+
+          <p>Hayvanlar inandılar. Çünkü inanmak kolaydı. Gerçeği sorgulamak zordu.</p>
+        </div>
+
+        <!-- Chapter VII -->
+        <div class="chapter">
+          <h2>Yedinci Bölüm: Değişen Kurallar</h2>
+          
+          <p>Bahar geldiğinde, hayvanlar ahırın duvarında bir şey fark ettiler. İlkeler değişmişti.</p>
+
+          <p>Eskiden "Hiçbir hayvan yatakta uyumayacaktır" yazarken, şimdi şöyle yazıyordu: "Hiçbir hayvan yatakta uyumayacaktır, çarşaflarla beraber."</p>
+
+          <p>Sincap açıkladı: "Domuzlar, yönetimsel görevlerinin yoğunluğu nedeniyle iyi bir dinlenmeye ihtiyaç duyar. Yataklar onlar için gereklidir. Bu çiftliğin verimliliği içindir, yani hepimizin yararınadır."</p>
+
+          <p>Ardından başka değişiklikler geldi:</p>
+
+          <p>"Hiçbir hayvan içki içmeyecektir" şöyle değişti: "Hiçbir hayvan içki içmeyecektir, aşırıya kaçmadan." Fırtına ve diğer domuzlar bir gecede şarap içip hastalandılar. Ama bunu hiçbir hayvan göremedi çünkü ofis binasına girmek yasaktı.</p>
+
+          <div class="quote">
+            "İlkeler hiç değişmedi. Hep böyleydi. Siz sadece hatırlamıyorsunuz. Kayıtlar gösteriyor ki, her zaman böyleydi."
+          </div>
+
+          <p>Hayvanlar birbirlerine baktılar. Emin değillerdi. Ama Sincap kayıtları gösterdi. Belgeler vardı. Belki de gerçekten böyleydi. Bellekleri mi yanıltıyordu?</p>
+
+          <p>Büyük Çelik tekrarladı: "Fırtına haklıdır. Daha çok çalışmalıyım." Yonca merak etti ama korktu. Sessiz kaldı.</p>
+        </div>
+
+        <!-- Chapter VIII -->
+        <div class="chapter">
+          <h2>Sekizinci Bölüm: Ayrıcalıklar ve Zenginlik</h2>
+          
+          <p>Yıllar geçti. Değirmen sonunda çalışıyordu. Ama hayvanların hayatı daha iyi değildi. Hâlâ çok çalışıyorlar, az yiyorlardı. Ama domuzlar ve köpekler şişmanlamıştı.</p>
+
+          <p>Domuzlar artık insan gibi yürüyorlardı. İki ayak üzerinde. İnsan kıyafetleri giyiyorlardı. Smith'in dolabından kalan smokinler, şapkalar, bastonlar...</p>
+
+          <p>Fırtına, komşu çiftlik sahipleriyle görüşmeler yapıyordu. İnsanlar geliyor, ziyaret ediyor, birlikte yemek yiyorlardı. Artık eski düşmanlar değillerdi; iş ortaklarıydılar.</p>
+
+          <p>Çiftliğin adı bile değişmişti. Tekrar "Topraklar Çiftliği" olmuştu. Hayvanlar Çiftliği? Bu isim unutulmuştu.</p>
+
+          <p>Bilge'nin mezarı unutulmuştu. Şarkı yasaklanmıştı. "Yeni bir şarkı var," dedi Sincap. Ama kimse duymamıştı bu şarkıyı.</p>
+
+          <div class="quote">
+            "Bazı hayvanlar diğerlerinden daha eşittir. Bu doğaldır. Domuzlar zekidir, bu yüzden daha fazla hakka sahiptir. Bu çiftliğin menfaatinedir."
+          </div>
+
+          <p>Yonca eski günleri hatırlamaya çalıştı. Gençliği, devrim heyecanı, özgürlük hayalleri... Hepsi sis perdesinin ardında kalmıştı. Şimdi sadece çalışmak, yemek, uyumak vardı.</p>
+
+          <p>Ama hâlâ umut vardı. Belki de bir gün... Belki de gerçek özgürlük gelecekti.</p>
+        </div>
+
+        <!-- Chapter IX -->
+        <div class="chapter">
+          <h2>Dokuzuncu Bölüm: Kahramanın Sonu</h2>
+          
+          <p>Büyük Çelik hasta düştü. Yirmi yıl süren ağır çalışma, devasa bedenini yormuştu. Öksürüyordu, ateşi vardı, ayağa kalkamıyordu.</p>
+
+          <p>Fırtına ziyaret etti onu. "Merak etme," dedi. "En iyi veterinere götürüyoruz seni. Özel bir merkez var, orada tedavi edecekler seni."</p>
+
+          <p>Bir kamyon geldi. Yonca, Büyük Çelik'in kamyona bindirilişini izledi. Ama bir şey fark etti. Kamyonun yan tarafındaki yazıyı okudu: "Et ve Deri Ticareti. Gümrük No: 4738."</p>
+
+          <p>Yonca'nın kalbi duracak gibi oldu. "Büyük Çelik!" diye bağırdı. "Dön! Bu bir tuzak!"</p>
+
+          <p>Ama çok geçti. Kamyon uzaklaştı. Büyük Çelik bir daha görünmedi.</p>
+
+          <div class="quote">
+            "Büyük Çelik maalesef kaybettik. O, son nefesinde bile 'Fırtına haklıdır' dedi. Onun anısına bir gün yas ilan edildi."
+          </div>
+
+          <p>Sincap bu duyuruyu yaptı. Ertesi gün, domuzlar Büyük Çelik'in anısına içki içtiler. Çok içtiler. Bir sonraki gün Sincap açıkladı: "Bir doktor hatası yüzünden. Ama artık iyiler."</p>
+
+          <p>Yonca ağladı. Ama sessizce. Çünkü sesini çıkarmak tehlikeliydi. Büyük Çelik, çiftliğin en sadık çalışanı, satılmıştı. Öldürülmüştü. Ve kimse sesini çıkaramıyordu.</p>
+        </div>
+
+        <!-- Chapter X -->
+        <div class="chapter">
+          <h2>Onuncu Bölüm: Son Gösteri</h2>
+          
+          <p>Yıllar sonra, yeni nesiller doğdu. Bilge'yi hatırlayan kalmamıştı. Devrim masal olmuştu. "Eskiden insanlar vardı, şimdi yok" deniyordu. Başka bir şey bilinmiyordu.</p>
+
+          <p>Çiftliğin verimliliği arttıkça, hayvanların payı azaldı. Makineler çalışıyordu ama onları kullanan domuzlardı. Hayvanlar sadece çalışıyordu.</p>
+
+          <p>Bir gece, büyük bir ziyafet düzenlendi. Komşu çiftlik sahipleri, beş kişi, geldiler. Fırtına onları ağırladı. Birlikte yemek yediler, kart oynadılar, kahkaha attılar.</p>
+
+          <p>Dışarıdaki hayvanlar, evin içini izliyorlardı. Işıklar, kahkahalar, insanlar... Ve domuzlar. İki ayak üzerinde yürüyen, insan kıyafetleri giyen, içki içen domuzlar.</p>
+
+          <p>Yonca, şimdi çok yaşlı bir kız eşek, son kez baktı. İnsanlarla domuzlar arasındaki farkı görmeye çalıştı. Ama göremedi.</p>
+
+          <p>Fırtına bir kart masasından diğerine geçti. İnsanlar onu alkışladılar. "Siz, eski düşmanlarınızdan daha iyi bir çiftlik işletiyorsunuz," dedi bir konuk. "Sizden öğrenecek çok şeyimiz var."</p>
+
+          <p>Fırtına gülümsedi. İki ayak üzerinde durdu. İnsan gibi.</p>
+
+          <div class="quote">
+            "Tüm hayvanlar eşittir, ama bazıları diğerlerinden daha fazla eşittir."
+          </div>
+
+          <p>Yonca başını çevirdi. Gözlerinde yaşlar vardı. Ama umut da vardı. Çünkü bazı hayvanlar hâlâ hatırlıyordu. Bazı hayvanlar hâlâ umuyordu.</p>
+
+          <p>Belki de bir gün... Belki de gerçek devrim hâlâ gelecekti.</p>
+
+          <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%); border-radius: 16px; border: 3px solid var(--border);">
+            <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 20px;">🐷 SON 🐷</h3>
+            <p style="font-style: italic; font-size: 1.4rem; line-height: 1.8; margin-bottom: 20px;">
+              "Zincirleriniz görünmez olabilir,<br>
+              Ama hâlâ zincirlerdir.<br>
+              Özgürlük, sadece insanlardan değil,<br>
+              Kendi aranızdaki zalimlerden de kurtulmaktır."
+            </p>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">
+              Bu hikaye, her devrimin içinde saklı tehlikeleri anlatır.<br>
+              İktidar yozlaştırır. Mutlak iktidar mutlak olarak yozlaştırır.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    async function openBook(bookKey) {
+      const user = getCurrentUser();
+      if (!user?.id) {
+        alert('Kitap okumak için önce giriş yapmalısın!');
+        location.href = 'giris.html';
+        return;
+      }
+
+      try {
+        await tryOpenBook(bookKey, null);
+        document.getElementById('bookContent').style.display = 'block';
+        document.querySelector('.book-header').style.display = 'none';
+        window.scrollTo(0, 0);
+        trackRead('ciftlikisyan', 12);
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+  </script>
+</body>
+</html>
