@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hayvan Çiftliği — George Orwell | CloudBook</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    .book-detail {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .book-header {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      align-items: flex-start;
+    }
+    .book-cover {
+      width: 280px;
+      height: 400px;
+      background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #8B4513 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 4rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+    }
+    .book-info h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .book-info .author {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+    .book-meta {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    .book-meta span {
+      background: var(--surface2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .book-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 30px;
+    }
+    .btn-read-book {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-read-book:hover {
+      background: var(--primary-hover);
+    }
+    .book-content {
+      background: var(--surface);
+      padding: 40px;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+    .chapter {
+      margin-bottom: 50px;
+    }
+    .chapter h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .chapter p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    .quote {
+      background: var(--surface2);
+      border-left: 4px solid var(--primary);
+      padding: 20px 25px;
+      margin: 30px 0;
+      font-style: italic;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 768px) {
+      .book-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .book-cover {
+        width: 200px;
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body class="reader-layout">
+  <div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
+  
+  <header class="reader-topbar">
+    <a href="index.html" class="reader-back">← Ana Sayfa</a>
+    <div class="reader-topbar-title">Hayvan Çiftliği</div>
+    <div class="reader-topbar-controls">
+      <button class="r-ctrl-btn" id="fontPanelBtn" onclick="toggleFontPanel()">Aa</button>
+    </div>
+  </header>
+
+  <div class="reader-body">
+    <div class="book-detail">
+      <!-- Book Header -->
+      <div class="book-header">
+        <div class="book-cover">🐷</div>
+        <div class="book-info">
+          <h1>Hayvan Çiftliği</h1>
+          <p class="author">George Orwell</p>
+          <div class="book-meta">
+            <span>📖 112 Sayfa</span>
+            <span>🏷️ Siyasi Roman</span>
+            <span>📅 1945</span>
+            <span>⭐ 9.2/10</span>
+          </div>
+          <p class="book-description">
+            İngiltere'de bir çiftlikte yaşayan hayvanlar, insan efendilerine karşı ayaklanır ve kendi çiftliklerini yönetmeye başlarlar. Ancak zamanla domuzlar tarafından diktatörlüğe dönüşen bu devrim, totalitarizm ve iktidarın yozlaşması üzerine keskin bir eleştiri sunar.
+          </p>
+          <button class="btn-read-book" onclick="openBook('hayvanciftligi')">📖 Kitabı Oku (10 Puan)</button>
+        </div>
+      </div>
+
+      <!-- Book Content -->
+      <div class="book-content" id="bookContent" style="display: none;">
+        
+        <!-- Chapter I -->
+        <div class="chapter">
+          <h2>I. Bölüm</h2>
+          
+          <p>Bir gece vakti Bay Jones, Hayvan Çiftliği'nin sahibi, yatağına yatmak üzereyken tavuk kümesi kapısının çarpıldığını duydu. O kadar sarhoştu ki, tüfeğini alıp dışarı çıkmaya dahi tenezzül etmedi. Tekrar yatağına uzandı ve hemen uykuya daldı.</p>
+
+          <p>Çiftliğin ahırında, tüm hayvanlar bir araya toplanmışlardı. Major, domuz, şimdiye kadar görmüş oldukları en yaşlı ve en saygın hayvan, ahşap bir platformun üzerinde duruyordu. Yaşına ve cüssesine rağmen gözleri hâlâ çok parlaktı ve konuşurken canlılığından hiçbir şey kaybetmemişti.</p>
+
+          <p>"Kardeşler," diye başladı, "bu gece buraya toplandık, çünkü çok kısa bir zaman sonra öleceğimi hissediyorum. Ama ölmeden önce size bildiklerimi, hayatım boyunca edindiğim bilgileri aktarmak istiyorum.</p>
+
+          <p>Bizim hayatımız ne kadar da kötü, kölelikten başka bir şey değil! İngiltere'de hiçbir hayvan özgür değil. Hayatımız acı dolu, kölelik dolu, hakaret dolu. Doğanın kanunlarına göre bu dünyada yeterince yaşayacak kadar yiyeceği olmayan tek yaratık insandır.</p>
+
+          <div class="quote">
+            "Hayvanlar birlikte çalışır, birlikte güçlenir, birlikte özgür olur!"
+          </div>
+
+          <p>Ama tüm bu kötülüklere rağmen, bizim acı çekmemizin nedeni sadece insanlar tarafından çalınan mahsuller değildir. Hayvanlar birbirlerine karşı gerçekten iyi davransalardı, hiçbir insanla ortak olmaya gerek kalmadan birlikte yaşayabilirlerdi. İnsanlar bizi sömürmek için tek şeye ihtiyaç duyarlar: bizim çalışmamıza. Bizim ürettiklerimizi ellerine geçirirler, biz ise açlık ve açlık içinde ölürüz.</p>
+
+          <p>Öyleyse soru şu: İnsanlar olmadan biz hayatta kalabilir miyiz? Evet! Bizim için yiyecek üretebilir, barınak inşa edebiliriz. Biz makine kullanmadan, elektrik kullanmadan her şeyi yapabiliriz. İnsanlar bize vermeyen, kendi emeğimizle kazandığımız şeyleri alabiliriz!</p>
+
+          <p>Bu nedenle, kardeşlerim, benim mesajım şudur: İnsanlara karşı ayaklanın! İşte benim size verdiğim mesaj: Devrim! İnsanları kovun ve çiftliği kendiniz yönetin!</p>
+        </div>
+
+        <!-- Chapter II -->
+        <div class="chapter">
+          <h2>II. Bölüm</h2>
+          
+          <p>Major'ın ölümünden üç gün sonra, hayvanlar onun öğretilerini unutmamaya karar verdiler. Snowball ve Napoleon, Major'ın öğretilerini sistemleştirdiler ve "Hayvanizm" adını verdiler. Her gece, Jones uyuduktan sonra, ahırda gizli toplantılar yapıyorlardı.</p>
+
+          <p>Snowball, okuma yazma bilmeyen diğer hayvanlara okuma dersleri vermeye başladı. Napoleon ise yavrularını eğitmekle meşguldü. Squealer, bir domuz olarak, konuşma yeteneğiyle dikkat çekiyordu ve hayvanların kafasındaki şüpheleri gidermek için kullanılıyordu.</p>
+
+          <p>Bir gece, Jones çok sarhoş olmuş ve ertesi gün ahırı temizlemeyi unutmuştu. Hayvanlar açlıktan öfkelendiler. Bir anda, Clover ön ayaklarını yere vurdu ve tüm hayvanlar ayaklandı! Jones ve yardımcıları kaçtı. Hayvanlar çiftliği ele geçirdiler!</p>
+
+          <div class="quote">
+            "Dört ayak iyi, iki ayak kötü!"
+          </div>
+
+          <p>Ertesi gün, Snowball çiftlik binasının duvarına boya ile yazdı: "Yedi Emir". Bunlar şunlardı:</p>
+
+          <p>1. İki ayak üzerinde yürüyen her şey düşmandır.<br>
+          2. Dört ayak üzerinde yürüyen veya kanatlanan her şey dosttur.<br>
+          3. Hiçbir hayvan giysi giymeyecektir.<br>
+          4. Hiçbir hayvan yatakta yatmayacaktır.<br>
+          5. Hiçbir hayvan alkol içmeyecektir.<br>
+          6. Hiçbir hayvan başka bir hayvanı öldürmeyecektir.<br>
+          7. Bütün hayvanlar eşittir.</p>
+
+          <p>Hayvanlar bu emirleri ezberlediler. "Bütün hayvanlar eşittir" özellikle sevdikleri bir emirdi. Her sabah bayrağı selamlar, "Beasts of England" şarkısını söylerlerdi. Hayat güzel görünüyordu.</p>
+        </div>
+
+        <!-- Chapter III -->
+        <div class="chapter">
+          <h2>III. Bölüm</h2>
+          
+          <p>İlk hasat, hayvanların daha önce hiç görmediği kadar büyüktü. Tüm mahsulü birlikte topladılar. Domuzlar çalışmıyorlardı, yönetim işleriyle meşguldüler. Boxer ve Clover, atlar, herkesten daha çok çalışıyorlardı. Boxer'ın gücü inanılmazdı.</p>
+
+          <p>"Ben daha çok çalışacağım!" bu Boxer'ın sloganıydı. Clover ise başkalarına yardım eder, özellikle yavrulara dikkat ederdi. Mollie, dişi at, ise süslenmekten vazgeçmedi. Mavi kurdeleleri vardı ve şeker yemekten hoşlanırdı.</p>
+
+          <p>Snowball, hayvanları eğitmek için komiteler kurdu: Yumurta Üretim Komitesi, Kuyruk Temizleme Komitesi, Okuma ve Yazma Komitesi... Ancak çoğu başarısız oldu. Domuzlar ise kendilerine ayrı bir alan ayırdılar, çiftlik binasının içinde.</p>
+
+          <div class="quote">
+            "Domuzlar bu kadar zeki oldukları için, açık havada uyumak onlar için uygun değildi."
+          </div>
+
+          <p>Milk yumurtası gizemli bir şekilde kayboldu. Napoleon, Squealer aracılığıyla açıkladı: "Süt, domuzların için gereklidir. Beyin çalışması yoğundur ve domuzlar üretimi planlayarak çiftliği yönetirler. Bu, tüm hayvanların yararınadır."</p>
+
+          <p>Hayvanlar kafalarını salladılar. Bu mantıklı geliyordu. Ama Clover hâlâ merak ediyordu: "Bütün hayvanlar eşittir" dememiş miydiler?</p>
+        </div>
+
+        <!-- Chapter IV-V Summary -->
+        <div class="chapter">
+          <h2>IV & V. Bölümler - Kış ve İç Çatışma</h2>
+          
+          <p>Kış geldi. Jones çiftliği geri almaya çalıştı ama hayvanlar, özellikle Boxer ve Snowball'un taktikleriyle, saldırıyı püskürttüler. "Hayvan Çiftliği Savaşı" zaferle sonuçlandı. Snowball ve Boxer kahraman ilan edildiler.</p>
+
+          <p>Ancak içeride sorunlar başladı. Napoleon ve Snowball, rüzgar değirmeni inşa etme konusunda anlaşamadılar. Snowball, çiftliği daha modern ve verimli hale getirmek istiyordu. Napoleon ise sadece yiyecek üretimine odaklanmak istiyordu.</p>
+
+          <p>Bir toplantı gecesi, Snowball konuşurken, Napoleon tuhaf bir ses çıkardı. Dışarıdan dokuz dev köpek - Napoleon'un daha önce çaldığı ve yetiştirdiği yavrular - salondaki daldılar. Snowball'u kovaladılar!</p>
+
+          <div class="quote">
+            "Snowball, bu gece göründüğü yerden beri... teröristtir!"
+          </div>
+
+          <p>Snowball kaçtı ve bir daha asla görülmedi. Napoleon tek lider oldu. Toplantılar iptal edildi. Napoleon, Squealer aracılığıyla kararlarını açıkladı. Hayvanlar kafalarını salladılar, şüpheliydiler ama Squealer ikna ediciydi.</p>
+
+          <p>Boxer her zaman dediği gibi tekrarladı: "Napoleon haklıdır."</p>
+        </div>
+
+        <!-- Chapter VI-VII Summary -->
+        <div class="chapter">
+          <h2>VI & VII. Bölümler - Değişen Kurallar</h2>
+          
+          <p>Rüzgar değirmeni inşa edildi ama yıkıldı. Napoleon Jones'un suçladı. Tekrar inşa edildi. Yıkıldı. Tekrar inşa edildi. Her seferinde hayvanlar daha çok çalıştılar, daha az yediler. Domuzlar ve köpekler ise daha çok yemeye başladılar.</p>
+
+          <p>Bir gece, hayvanlar ahırdan çıktıklarında Yedi Emir'in değiştiğini gördüler. "Hiçbir hayvan yatakta yatmayacaktır" artık "Hiçbir hayvan yatakta yatmayacaktır, çarşaflarla" şeklindeydi.</p>
+
+          <p>Squealer açıkladı: "Domuzlar, beyin çalışmaları için iyi bir dinlenmeye ihtiyaç duyarlar. Yataklar onlar için gereklidir. Bu, çiftliğin verimliliği içindir."</p>
+
+          <p>Daha sonra, "Hiçbir hayvan alkol içmeyecektir" de değişti: "Hiçbir hayvan alkol içmeyecektir, aşırıya kaçmadan." Napoleon ve diğer domuzlar bir gecede sarhoş oldukları için hastalandılar.</p>
+
+          <div class="quote">
+            "Yedi Emir hiç değişmemiştir. Hep böyleydi. Hayvanlar sadece hatırlamıyorlar."
+          </div>
+
+          <p>Hayvanlar birbirlerine baktılar. Emin değillerdi. Ama Squealer'in söylediği mantıklı geliyordu. Belki de gerçekten böyleydi. Boxer her zaman dediği gibi tekrarladı: "Daha çok çalışmalıyım!"</p>
+        </div>
+
+        <!-- Chapter VIII-IX Summary -->
+        <div class="chapter">
+          <h2>VIII & IX. Bölümler - Totalitarizm</h2>
+          
+          <p>"Bütün hayvanlar eşittir" değişti. Şimdi şöyleydi: "Bütün hayvanlar eşittir, ama bazı hayvanlar diğerlerinden daha eşittir."</p>
+
+          <p>Domuzlar artık insan gibi yürüyorlardı. İki ayak üzerinde. Whips (kırbaçlar) taşıyorlardı. İnsan kıyafetleri giyiyorlardı. Napoleon, çiftliğin dışından insan ziyaretçileri ağırlıyordu. Birlikte poker oynuyorlardı.</p>
+
+          <p>Boxer hastalandı. On iki yaşında, çalışmak için çok yaşlıydı. Napoleon, onu bir veteriner hastanesine götüreceğini söyledi. Bir kamyon geldi. Hayvanlar Boxer'ı uğurladılar. Ama Clover fark etti: Kamyonun üzerinde "At eti işleyicisi ve Deri tüccarı" yazıyordu!</p>
+
+          <div class="quote">
+            "Boxer'ı satın aldılar! Napoleon onu öldürmek için sattı!"
+          </div>
+
+          <p>Squealer açıkladı: "Bu bir yanlış anlaşılmaydı. Veteriner hastanesi eski bir at eti işleyicisi binasındaydı. Boxer orada en iyi bakımı alıyor."</p>
+
+          <p>Üç gün sonra, Squealer duyurdu: Boxer ölmüştü. Napoleon, Boxer'ın son sözlerinin "Napoleon'a sadık kalın" olduğunu söyledi. Hayvanlar üzüldüler ama inandılar. Boxer'ın anısına bir gün sonra içki içtiler. Domuzlar, tabii ki.</p>
+        </div>
+
+        <!-- Chapter X - Final -->
+        <div class="chapter">
+          <h2>X. Bölüm - Son</h2>
+          
+          <p>Yıllar geçti. Bazı hayvanlar öldü. Yeni nesiller doğdu. Major'ın anısı, devrimin anısı unutuldu. Artık hiçbir hayvan "Beasts of England" şarkısını söylemiyordu. Yasaklanmıştı.</p>
+
+          <p>Çiftlik çok daha zengindi. Ama hayvanlar daha da kötü durumdaydılar. Daha çok çalışıyorlar, daha az yiyorlardı. Domuzlar ve insanlar arasındaki fark artık gözle görülemiyordu.</p>
+
+          <p>Bir gece, sesler duyuldu. Napoleon ve diğer domuzlar, komşu çiftlik sahipleriyle birlikte yemek yiyorlardı. İnsanlar onları şereflendirdiler: "Hayvan Çiftliği'nin sahipleri, diğer çiftlik sahiplerinden daha disiplinliler, daha çalışkanlar, verimlilikleri daha yüksek."</p>
+
+          <p>Hayvanlar, çiftlik binasının dışından içeriyi izlediler. Napoleon ve Mr. Pilkington birlikte iskambil oynuyorlardı. İkisi de güldüler. Sonra... kavga ettiler!</p>
+
+          <div class="quote">
+            "Bizim düşmanımız insan değil, bizim düşmanımız hayvan değil. Bizim düşmanımız... bizim kendimiziz."
+          </div>
+
+          <p>Hayvanlar dışarıya baktılar. Bir domuzdan diğerine, bir insandan diğerine. Artık hangisinin domuz, hangisinin insan olduğunu ayırt edemiyorlardı.</p>
+
+          <p>Clover eski günleri hatırlamaya çalıştı. Eşitlik, özgürlük, kardeşlik... Hepsi kaybolmuştu. Ama o hâlâ umutluydu. Belki de bir gün, gerçek devrim gelecekti.</p>
+
+          <p>Ya da belki de hiç gelmeyecekti.</p>
+
+          <div style="text-align: center; margin-top: 50px; padding: 30px; background: var(--surface2); border-radius: 12px;">
+            <h3 style="color: var(--primary); margin-bottom: 15px;">🐷 SON 🐷</h3>
+            <p style="font-style: italic;">"Bütün hayvanlar eşittir, ama bazı hayvanlar diğerlerinden daha eşittir."</p>
+            <p style="margin-top: 20px; color: var(--text-secondary);">George Orwell, 1945</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    async function openBook(bookKey) {
+      const user = getCurrentUser();
+      if (!user?.id) {
+        alert('Kitap okumak için önce giriş yapmalısın!');
+        location.href = 'giris.html';
+        return;
+      }
+
+      try {
+        await tryOpenBook(bookKey, null);
+        document.getElementById('bookContent').style.display = 'block';
+        document.querySelector('.book-header').style.display = 'none';
+        window.scrollTo(0, 0);
+        trackRead('hayvanciftligi', 10);
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+  </script>
+</body>
+</html>
