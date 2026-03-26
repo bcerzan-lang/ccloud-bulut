@@ -1,12 +1,13 @@
-# CloudKitap - Puan Tabanlı Kitap Okuma Sistemi
+# CloudManga - Puan Tabanlı Manga Okuma Sistemi
 
 ## Özellikler
 - ✅ Kullanıcı kayıt/giriş sistemi
-- ✅ Puan tabanlı kitap açma (10 puan = 1 kitap)
-- ✅ İlk kitap ücretsiz
+- ✅ Puan tabanlı manga açma (10 puan = 1 manga)
+- ✅ İlk manga ücretsiz
 - ✅ Okuma/yazma sıralaması
 - ✅ Günlük ödül sistemi (1. 10, 2. 5, 3. 2 puan)
 - ✅ Kalıcı veritabanı
+- ✅ Popüler mangalar (Naruto, One Piece, Attack on Titan, Demon Slayer, My Hero Academia, Death Note)
 
 ## Kurulum
 
@@ -37,10 +38,19 @@ http://localhost:10000
 1. `http://localhost:10000/giris.html` adresine gidin
 2. Yeni hesap oluşturun veya mevcut hesaba giriş yapın
 
-### Kitap Açma
-- İlk seçtiğiniz kitap ücretsiz
-- Sonraki kitaplar için 10 puan gerekir
-- Puan kazanmak için okuma/yazma aktivitesi yapın
+### Manga Okuma
+- `http://localhost:10000/manga.html` adresinden manga seçin
+- İlk seçtiğiniz manga ücretsiz
+- Sonraki mangalar için 10 puan gerekir
+- Puan kazanmak için okuma aktivitesi yapın
+
+### Mevcut Mangalar
+- 🍥 **Naruto** - 700+ bölüm
+- 🏴‍☠️ **One Piece** - 1100+ bölüm  
+- ⚔️ **Attack on Titan** - 139 bölüm
+- 🗡️ **Demon Slayer** - 205 bölüm
+- 🦸 **My Hero Academia** - 410+ bölüm
+- 📓 **Death Note** - 108 bölüm
 
 ### Sıralama Sistemi
 - Günlük okuma/yazma sıralaması
@@ -50,10 +60,14 @@ http://localhost:10000
 ## Dosya Yapısı
 ```
 ├── server.py              # Flask sunucusu
-├── cloudkitap.db          # SQLite veritabanı
+├── cloudmanga.db          # SQLite veritabanı
 ├── giris.html             # Giriş/kayıt sayfası
 ├── hesap.html             # Hesap ve sıralama
+├── manga.html             # Manga listesi
 ├── index.html             # Ana sayfa
+├── naruto-bolum1.html     # Naruto Bölüm 1
+├── naruto-bolum2.html     # Naruto Bölüm 2
+├── onepiece-bolum1.html  # One Piece Bölüm 1
 ├── style.css              # Stil dosyası
 ├── app.js                 # JavaScript kodu
 └── requirements.txt       # Python paketleri
@@ -61,7 +75,7 @@ http://localhost:10000
 
 ## Veritabanı Tabloları
 - `users` - Kullanıcı bilgileri ve puanlar
-- `book_unlocks` - Kitap açma kayıtları
+- `book_unlocks` - Manga açma kayıtları
 - `user_reading` - Okuma aktiviteleri
 - `user_writing` - Yazma aktiviteleri
 - `reward_history` - Ödül geçmişi
@@ -73,3 +87,4 @@ Tüm dosyaları GitHub'a yükleyebilirsiniz. Sistem her platformda çalışır.
 - Veritabanı kalıcıdır, sunucu yeniden başlasa bile veriler kaybolmaz
 - Çoklu kullanıcı desteği mevcuttur
 - Günlük ödüller otomatik hesaplanır
+- CloudKitap yerine CloudManga markası kullanılır

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CloudManga — Dijital Manga Kütüphanesi</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+    <style>
+        .manga-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .manga-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .manga-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .manga-card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .manga-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+        }
+        .manga-cover {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        .manga-cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .manga-info {
+            padding: 24px;
+        }
+        .manga-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .manga-author {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+        .manga-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .manga-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .manga-chapters {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .manga-status {
+            color: var(--success);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .user-info {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .user-points {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .btn-unlock {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-unlock:hover {
+            background: var(--primary-hover);
+        }
+        .btn-unlock:disabled {
+            background: var(--border);
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon-wrap"><span>📚</span></div>
+            <span class="logo-text">CloudManga</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🏠</span><span>Ana Sayfa</span>
+            </a>
+            <a href="manga.html" class="nav-item active">
+                <span class="nav-icon">📖</span><span>Manga</span>
+            </a>
+            <a href="kullanici-kitaplari.html" class="nav-item">
+                <span class="nav-icon">✍️</span><span>Kullanıcı Kitapları</span>
+            </a>
+            <a href="giris.html" class="nav-item">
+                <span class="nav-icon">👤</span><span>Giriş Yap</span>
+            </a>
+            <a href="hesap.html" class="nav-item">
+                <span class="nav-icon">👤</span><span>Hesabım</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main-wrap">
+        <!-- MANGA HERO -->
+        <section class="manga-hero">
+            <h1>📚 CloudManga</h1>
+            <p>Naruto'dan One Piece'e, en popüler mangaları tek bir yerde oku! Puan kazanarak yeni mangaları aç.</p>
+        </section>
+
+        <!-- USER INFO -->
+        <div class="user-info">
+            <div>
+                <span>Hoş geldin, <strong id="mangaUsername">Misafir</strong>!</span>
+                <div class="user-points">💎 Puan: <span id="mangaPoints">0</span></div>
+            </div>
+            <div>
+                <small style="color: var(--text-secondary);">İlk manga ücretsiz! Sonraki mangalar 10 puan.</small>
+            </div>
+        </div>
+
+        <!-- MANGA GRID -->
+        <div class="manga-grid">
+            <!-- NARUTO -->
+            <div class="manga-card" onclick="openManga('naruto')">
+                <div class="manga-cover" style="background: linear-gradient(45deg, #ff6b35, #f7931e);">
+                    🍥
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Naruto</h3>
+                    <p class="manga-author">Masashi Kishimoto</p>
+                    <p class="manga-description">Konoha köyünde yaşayan ninja Naruto Uzumaki'nin Hokage olma macerası. Dostluk, cesaret ve asla pes etmeme üzerine kurulu epik hikaye.</p>
+                    <div class="manga-stats">
+                        <span class="manga-chapters">700+ Bölüm</span>
+                        <span class="manga-status">✅ Tamamlandı</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ONE PIECE -->
+            <div class="manga-card" onclick="openManga('onepiece')">
+                <div class="manga-cover" style="background: linear-gradient(45deg, #ff0000, #ffcc00);">
+                    🏴‍☠️
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">One Piece</h3>
+                    <p class="manga-author">Eiichiro Oda</p>
+                    <p class="manga-description">Monkey D. Luffy ve tayfasının efsanevi One Piece hazinesini bulmak için çıktıkları macera. Dünyanın en çok satan mangası.</p>
+                    <div class="manga-stats">
+                        <span class="manga-chapters">1100+ Bölüm</span>
+                        <span class="manga-status">🔄 Devam Ediyor</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATTACK ON TITAN -->
+            <div class="manga-card" onclick="openManga('aot')">
+                <div class="manga-cover" style="background: linear-gradient(45deg, #2c3e50, #3498db);">
+                    ⚔️
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Attack on Titan</h3>
+                    <p class="manga-author">Hajime Isayama</p>
+                    <p class="manga-description">İnsanlığın dev titanlara karşı savaşını anlatan karanlık ve epik hikaye. Gizemler, aksiyon ve sürükleyici bir senaryo.</p>
+                    <div class="manga-stats">
+                        <span class="manga-chapters">139 Bölüm</span>
+                        <span class="manga-status">✅ Tamamlandı</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEMON SLAYER -->
+            <div class="manga-card" onclick="openManga('demonslayer')">
+                <div class="manga-cover" style="background: linear-gradient(45deg, #e74c3c, #9b59b6);">
+                    🗡️
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Demon Slayer</h3>
+                    <p class="manga-author">Koyoharu Gotouge</p>
+                    <p class="manga-description">Ailesini kaybeden Tanjiro'nun kardeşini kurtarmak için iblis avcısı olma hikayesi. Görsel olarak muhteşem dövüş sahneleri.</p>
+                    <div class="manga-stats">
+                        <span class="manga-chapters">205 Bölüm</span>
+                        <span class="manga-status">✅ Tamamlandı</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MY HERO ACADEMIA -->
+            <div class="manga-card" onclick="openManga('mha')">
+                <div class="manga-cover" style="background: linear-gradient(45deg, #27ae60, #f39c12);">
+                    🦸
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">My Hero Academia</h3>
+                    <p class="manga-author">Kohei Horikoshi</p>
+                    <p class="manga-description">Süper güçlerin normal olduğu dünyada güçsüz bir çocuğun en büyük kahraman olma hikayesi. Okul, arkadaşlık ve aksiyon.</p>
+                    <div class="manga-stats">
+                        <span class="manga-chapters">410+ Bölüm</span>
+                        <span class="manga-status">🔄 Devam Ediyor</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEATH NOTE -->
+            <div class="manga-card" onclick="openManga('deathnote')">
+                <div class="manga-cover" style="background: linear-gradient(45deg, #2c3e50, #95a5a6);">
+                    📓
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Death Note</h3>
+                    <p class="manga-author">Tsugumi Ohba & Takeshi Obata</p>
+                    <p class="manga-description">Ölüm Defteri'nin bulunduğu zeki bir lise öğrencisinin dünyayı suçlulardan arındırma planı. Zeka savaşlarının zirvesi.</p>
+                    <div class="manga-stats">
+                        <span class="manga-chapters">108 Bölüm</span>
+                        <span class="manga-status">✅ Tamamlandı</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Manga kullanıcı arayüzünü senkronize et
+        function syncMangaUI() {
+            const user = getCurrentUser();
+            const usernameEl = document.getElementById('mangaUsername');
+            const pointsEl = document.getElementById('mangaPoints');
+            
+            if (usernameEl) usernameEl.textContent = user?.username || 'Misafir';
+            if (pointsEl) pointsEl.textContent = user?.points || '0';
+        }
+
+        // Manga açma fonksiyonu
+        async function openManga(mangaKey) {
+            const user = getCurrentUser();
+            if (!user?.id) {
+                alert('Manga okumak için önce giriş yapmalısın!');
+                location.href = 'giris.html';
+                return;
+            }
+
+            // Manga yönlendirme haritası
+            const mangaUrls = {
+                'naruto': 'naruto-bolum1.html',
+                'onepiece': 'onepiece-bolum1.html',
+                'aot': 'aot-bolum1.html',
+                'demonslayer': 'demonslayer-bolum1.html',
+                'mha': 'mha-bolum1.html',
+                'deathnote': 'deathnote-bolum1.html'
+            };
+
+            const targetUrl = mangaUrls[mangaKey];
+            if (!targetUrl) {
+                alert('Bu manga henüz mevcut değil!');
+                return;
+            }
+
+            try {
+                await tryOpenBook(mangaKey, targetUrl);
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        // Sayfa yüklendiğinde kullanıcı bilgisini güncelle
+        window.addEventListener('DOMContentLoaded', () => {
+            syncMangaUI();
+            
+            // Mevcut kullanıcı profilini yenile
+            refreshCurrentUserProfile().then(() => {
+                syncMangaUI();
+            }).catch(() => {});
+        });
+    </script>
+</body>
+</html>

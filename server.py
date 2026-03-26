@@ -6,7 +6,7 @@ from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
 APP_DIR = os.path.abspath(os.path.dirname(__file__))
-DB_PATH = os.path.join(APP_DIR, "cloudkitap.db")
+DB_PATH = os.path.join(APP_DIR, "cloudmanga.db")
 
 
 def utc_iso():
