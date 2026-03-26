@@ -930,7 +930,7 @@ const calikusuData = {
   12: {
     num: "Bölüm 12", title: "Yol",
     sub: "Hikâye bitmez; sadece yön değiştirir.",
-    prev: "calikusu-bolum11.html", next: null,
+    prev: "calikusu-bolum11.html", next: "calikusu-bolum13.html",
     content: `
 <p class="drop-cap">Feride, artık “kaçmak” ile “gitmek” arasındaki farkı bilir.</p>
 <p>Kaçmak, korkudan doğar. Gitmek ise karardan. Feride karar vermeyi öğrenmiştir; ama bu, artık korkmadığı anlamına gelmez. Sadece korkuyu yanına alıp yürümeyi öğrenmiştir.</p>
@@ -939,6 +939,80 @@ const calikusuData = {
 <p class="scene-break">* * *</p>
 <p>Bu bölüm, Feride’nin “kimseye benzemek zorunda değilim” duygusunu sağlamlaştırır. Herkesin hikâyesi bir yerde düğümlenir. Feride’nin düğümü de çözülmez belki; ama artık düğümden korkmaz. Çünkü düğüm, ipi koparmamıştır.</p>
 <p style="text-align:center;margin-top:40px;color:var(--text3);font-size:12px;font-family:'Inter',sans-serif;letter-spacing:1px;">— 12 BÖLÜM · ÖZGÜN İÇERİK —</p>`
+  },
+  13: {
+    num: "Bölüm 13", title: "Eşik",
+    sub: "Bir karar, eski hayatla yeni hayat arasında köprü olur.",
+    prev: "calikusu-bolum12.html", next: "calikusu-bolum14.html",
+    content: `
+<p class="drop-cap">Feride, bir eşiğin tam ortasında durduğunu hisseder.</p>
+<p>Ne tam geridedir ne tam ileride. Eşik anları böyledir: insanı bir an askıda bırakır. Ama askıda kalan şey beden değil, niyettir.</p>
+<div class="thought">Karar vermek, geleceği bilmek değil; belirsizliğe rağmen yön seçmektir.</div>
+<p>Bu bölümde Feride, içindeki dağınık sesleri ilk kez bir plana dönüştürür.</p>`
+  },
+  14: {
+    num: "Bölüm 14", title: "Mektup",
+    sub: "Yazılan her satır, saklanan bir duyguyu açığa çıkarır.",
+    prev: "calikusu-bolum13.html", next: "calikusu-bolum15.html",
+    content: `
+<p class="drop-cap">Bir mektup gelir; içindeki cümleler kadar susuşları da ağırdır.</p>
+<p>Feride, satır aralarını okumayı iyi bilir. Kimin neyi söylemediğini, kimin neyi sakladığını daha hızlı anlar.</p>
+<p>Sonunda kâğıdı katlar ve şunu düşünür: “Bazı cevaplar yazılmaz, yaşanır.”</p>`
+  },
+  15: {
+    num: "Bölüm 15", title: "Yüzleşme",
+    sub: "Kaçınılan konuşmalar bir gün kapıyı çalar.",
+    prev: "calikusu-bolum14.html", next: "calikusu-bolum16.html",
+    content: `
+<p class="drop-cap">Feride bu kez susmaz.</p>
+<p>Yıllardır yarım kalan cümleleri tamamlar; incitmeden ama geri çekilmeden konuşur. Onun için bu bir tartışma değil, kendi sınırını çizme anıdır.</p>
+<div class="thought">İnsan bazen ilk kez sesini yükseltince değil, sesini netleştirince güçlü olur.</div>`
+  },
+  16: {
+    num: "Bölüm 16", title: "Yağmur",
+    sub: "Bazen hava, insanın içini birebir taklit eder.",
+    prev: "calikusu-bolum15.html", next: "calikusu-bolum17.html",
+    content: `
+<p class="drop-cap">Gün boyu ince bir yağmur yağar.</p>
+<p>Feride sokaklarda acele etmeden yürür; su birikintilerindeki yansımaları izler. Kendi yüzünün de artık değiştiğini fark eder: daha sakin, daha belirgin.</p>
+<p>Yağmur dinerken içindeki düğüm de biraz gevşer.</p>`
+  },
+  17: {
+    num: "Bölüm 17", title: "İz",
+    sub: "Bırakılan her iz, bir gün geri dönüp bulunur.",
+    prev: "calikusu-bolum16.html", next: "calikusu-bolum18.html",
+    content: `
+<p class="drop-cap">Feride, geçmişte verdiği küçük kararların bugünkü etkisini görür.</p>
+<p>Bir öğrencinin teşekkür cümlesi, bir dostun beklenmedik desteği, bir yabancının tanıdığı bakış... Hepsi bir araya gelince şu gerçek ortaya çıkar: Hiçbir emek kaybolmaz.</p>
+<div class="thought">İyi niyet, hemen değil ama mutlaka geri döner.</div>`
+  },
+  18: {
+    num: "Bölüm 18", title: "Sınav",
+    sub: "Hayat bazen not vermez ama öğretir.",
+    prev: "calikusu-bolum17.html", next: "calikusu-bolum19.html",
+    content: `
+<p class="drop-cap">Bu kez sınav, okulda değil hayattadır.</p>
+<p>Feride beklenmedik bir sorumluluğun altına girer. Yorulur, öfkelenir, sonra yeniden toparlanır. Çünkü artık dayanıklılığın sadece sabır değil, doğru destek istemek olduğunu da bilir.</p>
+<p>Günün sonunda kendine “geçtin” demeyi öğrenir.</p>`
+  },
+  19: {
+    num: "Bölüm 19", title: "Denge",
+    sub: "Kalp ile akıl, kavga etmek yerine anlaşabilir.",
+    prev: "calikusu-bolum18.html", next: "calikusu-bolum20.html",
+    content: `
+<p class="drop-cap">Feride ilk kez “ya hep ya hiç” yerine “denge”yi seçer.</p>
+<p>Sevdiği şeylerden vazgeçmeden, kendini de yormadan ilerlemenin yollarını arar. Bu arayış ona yeni bir olgunluk getirir: kazanmak değil sürdürebilmek.</p>
+<div class="thought">Uzun yolları hız değil, ritim tamamlar.</div>`
+  },
+  20: {
+    num: "Bölüm 20", title: "Yeni Başlangıç",
+    sub: "Biten her bölüm, başka bir hikâyeye kapı açar.",
+    prev: "calikusu-bolum19.html", next: null,
+    content: `
+<p class="drop-cap">Feride geriye bakar ve gülümser.</p>
+<p>Eksikleri, kırgınlıkları, cesaret ettiği anları bir bütün olarak görür. Kusursuz bir yol değildir bu; ama kendisine ait bir yol olduğu için kıymetlidir.</p>
+<p>Son satırda şunu yazar: “Ben değiştim. Hikâyem de değişti. Ama yürümeyi bırakmadım.”</p>
+<p style="text-align:center;margin-top:40px;color:var(--text3);font-size:12px;font-family:'Inter',sans-serif;letter-spacing:1px;">— 20 BÖLÜM · ÖZGÜN İÇERİK —</p>`
   }
 };
 
@@ -971,6 +1045,7 @@ function loadReaderChapter(num) {
   const mins = Math.ceil(wordCount / 200);
   const timeEl = document.getElementById("ttsTimeLeft");
   if (timeEl) timeEl.textContent = "~" + mins + " dk okuma";
+  trackRead("karisik", 1);
 }
 
 function loadCalikusuChapter(num) {
@@ -1005,6 +1080,7 @@ function loadCalikusuChapter(num) {
   const mins = Math.ceil(wordCount / 200);
   const timeEl = document.getElementById("ttsTimeLeft");
   if (timeEl) timeEl.textContent = "~" + mins + " dk okuma";
+  trackRead("calikusu", 1);
 }
 
 function getChapterNum() {
@@ -1019,6 +1095,7 @@ function getBookId() {
 
 document.addEventListener("DOMContentLoaded", function () {
   applyBrandName();
+  syncUserUI();
   const num = getChapterNum();
   if (document.getElementById("readerText")) {
     const bookId = getBookId();
@@ -1029,6 +1106,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ===== USER BOOKS (Online) =====
 const API_BASE = ""; // same-origin (served by server.py)
+
+function getCurrentUser() {
+  try {
+    return JSON.parse(localStorage.getItem("ck_user") || "null");
+  } catch {
+    return null;
+  }
+}
+
+function setCurrentUser(user) {
+  if (!user) {
+    localStorage.removeItem("ck_user");
+    return;
+  }
+  localStorage.setItem("ck_user", JSON.stringify(user));
+}
 
 async function apiJson(path, options = {}) {
   const res = await fetch(API_BASE + path, {
@@ -1041,6 +1134,138 @@ async function apiJson(path, options = {}) {
     throw new Error(msg);
   }
   return data;
+}
+
+async function refreshCurrentUserProfile() {
+  const user = getCurrentUser();
+  if (!user?.id) return null;
+  const fresh = await apiJson(`/api/users/${encodeURIComponent(user.id)}/profile`);
+  setCurrentUser(fresh);
+  syncUserUI();
+  return fresh;
+}
+
+async function registerAccount() {
+  const username = document.getElementById("accUsername")?.value?.trim() || "";
+  const password = document.getElementById("accPassword")?.value?.trim() || "";
+  const status = document.getElementById("accStatus");
+  if (!username || !password) {
+    if (status) status.textContent = "Kullanıcı adı ve şifre gir.";
+    return;
+  }
+  if (status) status.textContent = "Kaydediliyor...";
+  try {
+    await apiJson("/api/auth/register", {
+      method: "POST",
+      body: JSON.stringify({ username, password })
+    });
+    if (status) status.textContent = "Kayıt tamam. Şimdi giriş yapabilirsin.";
+  } catch (e) {
+    if (status) status.textContent = "Hata: " + e.message;
+  }
+}
+
+async function loginAccount() {
+  const username = document.getElementById("accUsername")?.value?.trim() || "";
+  const password = document.getElementById("accPassword")?.value?.trim() || "";
+  const status = document.getElementById("accStatus");
+  if (!username || !password) {
+    if (status) status.textContent = "Kullanıcı adı ve şifre gir.";
+    return;
+  }
+  if (status) status.textContent = "Giriş yapılıyor...";
+  try {
+    const user = await apiJson("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password })
+    });
+    setCurrentUser(user);
+    syncUserUI();
+    if (status) status.textContent = "Giriş başarılı.";
+    await loadLeaderboard();
+  } catch (e) {
+    if (status) status.textContent = "Hata: " + e.message;
+  }
+}
+
+function logoutAccount() {
+  setCurrentUser(null);
+  syncUserUI();
+  const status = document.getElementById("accStatus");
+  if (status) status.textContent = "Çıkış yapıldı.";
+}
+
+function syncUserUI() {
+  const user = getCurrentUser();
+  const nameEl = document.getElementById("currentUserName");
+  const ptsEl = document.getElementById("currentUserPoints");
+  const avatar = document.querySelector(".avatar");
+  if (nameEl) nameEl.textContent = user?.username ? user.username : "Misafir";
+  if (ptsEl) ptsEl.textContent = user?.points != null ? String(user.points) : "0";
+  if (avatar) avatar.textContent = (user?.username?.[0] || "K").toUpperCase();
+}
+
+async function tryOpenBook(bookKey, targetUrl) {
+  const user = getCurrentUser();
+  if (!user?.id) {
+    alert("Kitap açmak için önce hesap girişi yapmalısın.");
+    location.href = "hesap.html";
+    return;
+  }
+  try {
+    await apiJson("/api/books/open", {
+      method: "POST",
+      body: JSON.stringify({ user_id: user.id, book_key: bookKey })
+    });
+    await refreshCurrentUserProfile();
+    location.href = targetUrl;
+  } catch (e) {
+    alert(e.message);
+  }
+}
+
+async function trackRead(bookKey, pagesRead = 1) {
+  const user = getCurrentUser();
+  if (!user?.id) return;
+  const chapterNum = getChapterNum?.() || 1;
+  const markKey = `ck_read_${bookKey}_${chapterNum}`;
+  if (sessionStorage.getItem(markKey)) return;
+  sessionStorage.setItem(markKey, "1");
+  try {
+    await apiJson("/api/activity/read", {
+      method: "POST",
+      body: JSON.stringify({
+        user_id: user.id,
+        book_key: bookKey,
+        pages_read: pagesRead
+      })
+    });
+  } catch {}
+}
+
+async function loadLeaderboard() {
+  const table = document.getElementById("leaderboardBody");
+  if (!table) return;
+  table.innerHTML = `<tr><td colspan="6">Yükleniyor...</td></tr>`;
+  try {
+    const rows = await apiJson("/api/leaderboard");
+    if (!rows.length) {
+      table.innerHTML = `<tr><td colspan="6">Henüz veri yok.</td></tr>`;
+      return;
+    }
+    table.innerHTML = rows.map(r => `
+      <tr>
+        <td>#${r.rank}</td>
+        <td>${escapeHtml(r.username || "")}</td>
+        <td>${r.read_pages || 0}</td>
+        <td>${r.written_pages || 0}</td>
+        <td>${r.points || 0}</td>
+        <td>${r.rank_reward || 0}</td>
+      </tr>
+    `).join("");
+  } catch (e) {
+    table.innerHTML = `<tr><td colspan="6">Hata: ${escapeHtml(e.message || "yüklenemedi")}</td></tr>`;
+  }
 }
 
 async function loadUserBooks() {
@@ -1107,13 +1332,19 @@ async function createUserBook() {
   if (status) status.textContent = "Gönderiliyor…";
 
   try {
+    const user = getCurrentUser();
+    if (!user?.id) {
+      if (status) status.textContent = "Kitap yazmak için önce hesap girişi yap.";
+      return;
+    }
     const created = await apiJson("/api/books", {
       method: "POST",
       body: JSON.stringify({
         title: t?.value || "",
-        author: a?.value || "",
+        author: a?.value || user.username || "",
         synopsis: s?.value || "",
-        content: c?.value || ""
+        content: c?.value || "",
+        user_id: user?.id || null
       })
     });
     if (t) t.value = "";
@@ -1157,6 +1388,7 @@ async function loadUserBookDetail() {
     const mins = Math.max(1, Math.ceil(wordCount / 200));
     const timeEl = document.getElementById("ttsTimeLeft");
     if (timeEl) timeEl.textContent = "~" + mins + " dk okuma";
+    trackRead(`userbook-${id}`, Math.max(1, Math.ceil(wordCount / 250)));
   } catch (e) {
     if (titleEl) titleEl.textContent = "Kitap yüklenemedi";
     if (subEl) subEl.textContent = "API çalışmıyor olabilir.";

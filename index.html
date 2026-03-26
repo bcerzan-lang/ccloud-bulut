@@ -25,8 +25,11 @@
       <a href="kullanici-kitaplari.html" class="nav-item">
         <span class="nav-icon">✍️</span><span>Kullanıcı Kitapları</span>
       </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📖</span><span>Kitaplığım</span>
+      <a href="giris.html" class="nav-item">
+        <span class="nav-icon">👤</span><span>Giriş Yap</span>
+      </a>
+      <a href="hesap.html" class="nav-item">
+        <span class="nav-icon">👤</span><span>Hesabım</span>
       </a>
       <a href="#" class="nav-item">
         <span class="nav-icon">❤️</span><span>Favoriler</span>
@@ -60,7 +63,7 @@
       </div>
       <div class="topbar-right">
         <button class="icon-btn" title="Bildirimler">🔔</button>
-        <div class="avatar">K</div>
+        <a href="hesap.html" class="avatar" style="text-decoration:none;">K</a>
       </div>
     </header>
 
@@ -80,7 +83,7 @@
             <span class="meta-pill">🌍 Türkçe</span>
           </div>
           <div class="hero-actions">
-            <a href="kitap-karisik.html" class="btn-read">Okumaya Başla</a>
+            <button class="btn-read" onclick="tryOpenBook('karisik','kitap-karisik.html')">Okumaya Başla</button>
             <button class="btn-save" onclick="toggleSave(this)">+ Kitaplığıma Ekle</button>
           </div>
         </div>
@@ -128,7 +131,7 @@
           <a href="kitap-karisik.html" class="book-card">
             <div class="book-cover-wrap">
               <div class="book-cover karisik-cover"></div>
-              <div class="book-overlay"><span>Oku</span></div>
+              <div class="book-overlay"><span onclick="event.preventDefault();tryOpenBook('karisik','kitap-karisik.html')">Oku</span></div>
               <div class="book-badge tr-badge">TR</div>
             </div>
             <div class="book-card-info">
@@ -141,7 +144,7 @@
           <a href="kitap-calikusu.html" class="book-card">
             <div class="book-cover-wrap">
               <div class="book-cover calikusu-cover"></div>
-              <div class="book-overlay"><span>Oku</span></div>
+              <div class="book-overlay"><span onclick="event.preventDefault();tryOpenBook('calikusu','kitap-calikusu.html')">Oku</span></div>
               <div class="book-badge tr-badge">TR</div>
             </div>
             <div class="book-card-info">
@@ -254,7 +257,7 @@
     <a href="index.html" class="bn-item active"><span>🏠</span><span>Ana Sayfa</span></a>
     <a href="#" class="bn-item"><span>🔍</span><span>Keşfet</span></a>
     <a href="kullanici-kitaplari.html" class="bn-item"><span>✍️</span><span>Yaz</span></a>
-    <a href="#" class="bn-item"><span>👤</span><span>Profil</span></a>
+    <a href="hesap.html" class="bn-item"><span>👤</span><span>Hesap</span></a>
   </nav>
 
   <script src="app.js"></script>

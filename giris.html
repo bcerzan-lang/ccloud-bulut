@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - CloudKitap</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 40px;
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .auth-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--background);
+            color: var(--text);
+            font-size: 16px;
+        }
+        .form-button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-button:hover {
+            background: var(--primary-hover);
+        }
+        .auth-switch {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-secondary);
+        }
+        .auth-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .success-message {
+            background: #efe;
+            color: #3c3;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h1 class="auth-title" id="authTitle">Giriş Yap</h1>
+        
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+        
+        <form id="authForm">
+            <div class="form-group">
+                <label class="form-label">Kullanıcı Adı</label>
+                <input type="text" class="form-input" id="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Şifre</label>
+                <input type="password" class="form-input" id="password" required>
+            </div>
+            
+            <button type="submit" class="form-button" id="submitBtn">Giriş Yap</button>
+        </form>
+        
+        <div class="auth-switch">
+            <span id="switchText">Hesabın yok mu?</span>
+            <a href="#" class="auth-link" id="switchLink">Kayıt Ol</a>
+        </div>
+    </div>
+
+    <script>
+        let isLogin = true;
+        const authForm = document.getElementById('authForm');
+        const authTitle = document.getElementById('authTitle');
+        const submitBtn = document.getElementById('submitBtn');
+        const switchText = document.getElementById('switchText');
+        const switchLink = document.getElementById('switchLink');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        switchLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            isLogin = !isLogin;
+            updateUI();
+        });
+
+        function updateUI() {
+            if (isLogin) {
+                authTitle.textContent = 'Giriş Yap';
+                submitBtn.textContent = 'Giriş Yap';
+                switchText.textContent = 'Hesabın yok mu?';
+                switchLink.textContent = 'Kayıt Ol';
+            } else {
+                authTitle.textContent = 'Kayıt Ol';
+                submitBtn.textContent = 'Kayıt Ol';
+                switchText.textContent = 'Zaten hesabın var mı?';
+                switchLink.textContent = 'Giriş Yap';
+            }
+            hideMessages();
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+
+        function hideMessages() {
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+        }
+
+        authForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideMessages();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!username || !password) {
+                showError('Kullanıcı adı ve şifre zorunlu');
+                return;
+            }
+
+            const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+            
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('ck_user', JSON.stringify(data));
+                    showSuccess(isLogin ? 'Giriş başarılı! Yönlendiriliyor...' : 'Kayıt başarılı! Yönlendiriliyor...');
+                    setTimeout(() => {
+                        window.location.href = 'hesap.html';
+                    }, 1500);
+                } else {
+                    showError(data.error || 'Bir hata oluştu');
+                }
+            } catch (error) {
+                showError('Bağlantı hatası. Lütfen tekrar deneyin.');
+            }
+        });
+    </script>
+</body>
+</html>
